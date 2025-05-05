@@ -15,5 +15,15 @@ Removing the team and league columns
 
 
 ```{python}
-baseball_stats.drop(columns=['Team', 'Lg'])
+stats = baseball_stats.drop(columns =['Team', 'Lg'])
+stats
+# baseball_stats.query('Player == "Jos Tena*"')
+```
+
+Trying to merge duplicate players
+```{python}
+merged_data = stats.groupby('Player', as_index=False).sum()
+merged_data.drop_duplicates()
+
+# merged_data.query('Player == "Jos Tena*"')
 ```
