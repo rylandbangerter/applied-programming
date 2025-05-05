@@ -9,3 +9,11 @@ baseball_stats = pd.read_csv('baseball_stats.csv', encoding_errors ="ignore")
 # Display the first few rows of the dataframe
 baseball_stats.head()
 ```
+
+
+Removing the team and league columns 
+
+
+```{python}
+baseball_stats.drop(columns=['Team', 'Lg'])
+```
