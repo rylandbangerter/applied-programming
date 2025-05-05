@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
 # Load the CSV
-df = pd.read_csv('baseball_stats.csv', encoding='ISO-8859-1')
+df = pd.read_csv('baseball_stats.csv', encoding='ascii')
 
 # Drop non-numeric or irrelevant columns (like names or awards for now)
 df = df.drop(['Rk', 'Player', 'Team', 'Lg', 'Pos', 'Awards'], axis=1, errors='ignore')
