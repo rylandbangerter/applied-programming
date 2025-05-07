@@ -72,9 +72,24 @@ stats
 ```
 
 Trying to merge duplicate players
-```{python}
-merged_data = stats.groupby('Player', as_index=False).max()
+<!-- ```{python}
+merged_data = stats.groupby('Player', as_index=False)["G"].max()
 merged_data.drop_duplicates()
 
+merged_data.query('Player == "Jos Tena*"')
+``` -->
+
+
+```{python}
+# Group by 'Player' and find the maximum value of the 'GG' column
+max_g = stats.groupby('Player', as_index=False)['G'].max()
+
+# Merge the maximum 'GG' values back to the original DataFrame to filter rows
+merged_data = stats.merge(max_g, on=['Player', 'G'])
+
+# Drop duplicates if necessary
+merged_data = merged_data.drop_duplicates()
+
+# Query for a specific player (e.g., "Jos Tena*")
 merged_data.query('Player == "Jos Tena*"')
 ```
