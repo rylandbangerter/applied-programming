@@ -75,6 +75,7 @@ Trying to merge duplicate players
 
 
 
+
 ```{python}
 # Group by 'Player' and find the maximum value of the 'GG' column
 max_g = stats.groupby('Player', as_index=False)['G'].max()
