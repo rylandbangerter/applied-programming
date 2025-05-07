@@ -71,14 +71,6 @@ stats = stats.drop(columns=['Pos'])
 stats
 ```
 
-Trying to merge duplicate players
-<!-- ```{python}
-merged_data = stats.groupby('Player', as_index=False)["G"].max()
-merged_data.drop_duplicates()
-
-merged_data.query('Player == "Jos Tena*"')
-``` -->
-
 
 ```{python}
 # Group by 'Player' and find the maximum value of the 'GG' column
