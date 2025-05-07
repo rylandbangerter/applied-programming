@@ -28,6 +28,9 @@ next_game_features = features.mean().to_frame().T
 next_game_features = next_game_features[features.columns]
 
 # Run Calculations on Target Stats
+print("Shohei Ohtani's Next Game Results\n")
+print(f"{'Stat':<10} {'Prediction':>10}")
+print('-' * 21)
 for stat in target_stats:
     if stat not in df.columns:
         print(f"X Stat '{stat}' not found. Skipping.")
@@ -46,9 +49,7 @@ for stat in target_stats:
     prediction = model.predict(next_game_features)[0]
 
     # 6. Print results
-    print("Results")
-    print("-------")
-    print(f"Predction for Shohei Ohtani's {stat} next game: {prediction:.2f}\n")
+    print(f"{stat:<10} {prediction:.2f}")
 
 # Evaluate model on training data
 train_preds = model.predict(X)
