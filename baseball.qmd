@@ -21,13 +21,7 @@ stats
 # baseball_stats.query('Player == "Jos Tena*"')
 ```
 
-Trying to merge duplicate players
-```{python}
-merged_data = stats.groupby('Player', as_index=False).sum()
-merged_data.drop_duplicates()
 
-# merged_data.query('Player == "Jos Tena*"')
-```
 
 Changing the position and awards columns into numbers
 Awards: MVP, GG, SS, AS
@@ -75,4 +69,12 @@ def extract_primary_position(pos_string):
 stats['Position'] = stats['Pos'].apply(extract_primary_position)
 stats = stats.drop(columns=['Pos'])
 stats
+```
+
+Trying to merge duplicate players
+```{python}
+merged_data = stats.groupby('Player', as_index=False).mean()
+merged_data.drop_duplicates()
+
+# merged_data.query('Player == "Jos Tena*"')
 ```
