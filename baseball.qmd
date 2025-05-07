@@ -73,8 +73,8 @@ stats
 
 Trying to merge duplicate players
 ```{python}
-merged_data = stats.groupby('Player', as_index=False).mean()
+merged_data = stats.groupby('Player', as_index=False).max()
 merged_data.drop_duplicates()
 
-# merged_data.query('Player == "Jos Tena*"')
+merged_data.query('Player == "Jos Tena*"')
 ```
