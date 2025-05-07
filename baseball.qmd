@@ -2,6 +2,7 @@
 
 ```{python}
 import pandas as pd
+import re
 
 # Read in the CSV file
 baseball_stats = pd.read_csv('baseball_stats.csv', encoding_errors ="ignore")
@@ -15,5 +16,63 @@ Removing the team and league columns
 
 
 ```{python}
-baseball_stats.drop(columns=['Team', 'Lg'])
+stats = baseball_stats.drop(columns =['Team', 'Lg'])
+stats
+# baseball_stats.query('Player == "Jos Tena*"')
+```
+
+Trying to merge duplicate players
+```{python}
+merged_data = stats.groupby('Player', as_index=False).sum()
+merged_data.drop_duplicates()
+
+# merged_data.query('Player == "Jos Tena*"')
+```
+
+Changing the position and awards columns into numbers
+Awards: MVP, GG, SS, AS
+GG, SS, AS are all in a boolean format. 0 if they didn't get it and 1 if they did
+MVP is numbered by the number that comes after it, ex: MVP-9, MVP-12, etc.
+
+```{python}
+stats['GG'] = stats['Awards'].str.contains('GG', na=False).astype(int)
+stats['AS'] = stats['Awards'].str.contains('AS', na=False).astype(int)
+stats['SS'] = stats['Awards'].str.contains('SS', na=False).astype(int)
+
+# Add MVP ranking column
+def extract_mvp_rank(awards):
+    if pd.isna(awards):
+        return None
+    match = re.search(r'MVP-(\d+)', awards)
+    return int(match.group(1)) if match else None
+
+stats['MVP'] = stats['Awards'].apply(extract_mvp_rank)
+
+stats = stats.drop(columns=['Awards'])
+stats
+```
+
+
+changing the position column into numbers 
+
+```{python}
+position_map = {
+    '1': 1, '2': 2, '3': 3, '4': 4, '5': 5,
+    '6': 6, '7': 7, '8': 8, '9': 9
+}
+
+# Function to extract the primary numeric position
+def extract_primary_position(pos_string):
+    if pd.isna(pos_string):
+        return None
+    # Find all digits 1-9
+    digits = re.findall(r'[1-9]', pos_string)
+    if not digits:
+        return None
+    return position_map[digits[0]]  # Return the first valid position number
+
+# Apply the function to the 'Pos' column
+stats['Position'] = stats['Pos'].apply(extract_primary_position)
+stats = stats.drop(columns=['Pos'])
+stats
 ```
