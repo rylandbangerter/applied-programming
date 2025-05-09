@@ -1,45 +1,46 @@
 ## Overview
 
-**Project Title**:
+**Project Title**: MBGPT
 
-**Project Description**:
+**Project Description**: An AI that can predict statistics of baseball players in upcoming games.
 
-**Project Goals**:
+**Project Goals**: To determine results of future baseball statistics accurately through an easy-to-use predictive AI.
 
 ## Instructions for Build and Use
 
 Steps to build and/or run the software:
 
-1. First step here
-2.
-3.
+1. Install python on computer.
+2. Install the xgboost, pandas, and scikit-learn python libraries.
+3. Run one of our working models such as ```gettingStartedXgboost.py``` or ```shoheiPredictions.py```.
 
 Instructions for using the software:
 
-1. First step here
-2.
-3.
+1. Run one of the ```.py``` files provided.
+2. See results (currently is not very customizable).
 
 ## Development Environment 
 
 To recreate the development environment, you need the following software and/or libraries with the specified versions:
 
-* First thing here
-*
-*
+* Python 3.12.3
+* xgboost 2.0.3
+* pandas 2.1.4-dfsg
+* scikit-learn 1.4.1.post1
 
 ## Useful Websites to Learn More
 
 I found these websites useful in developing this software:
 
-* [Website Title](Link)
-*
-*
+* [XGBoost](https://xgboost.readthedocs.io/en/release_3.0.0/)
+* [Pandas](https://pandas.pydata.org/)
+* [scikit-learn](https://scikit-learn.org/stable/)
+* [TensorFlow](https://www.tensorflow.org/)
 
 ## Future Work
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] First thing here
-* [ ]
-* [ ]
+* [Increase accuracy of prediction]
+* [Aquire more data on individual players]
+* [Create an interface, GUI, or html page for software]
