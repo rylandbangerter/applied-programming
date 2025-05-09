@@ -41,6 +41,6 @@ I found these websites useful in developing this software:
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [Increase accuracy of prediction]
-* [Aquire more data on individual players]
-* [Create an interface, GUI, or html page for software]
+* [ ] Increase accuracy of prediction
+* [ ] Aquire more data on individual players
+* [ ] Create an interface, GUI, or html page for software
