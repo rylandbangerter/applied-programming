@@ -1,0 +1,281 @@
+title: "Machine Learning with Baseball Statistics"
+
+
+## Overview
+We did a total of three different models that all are able to make predictions to different levels of success.
+
+# model 1
+This model is able to successfully make predictions.  Some of the predictions are quite close but there is a bit of unpredictability in it so far.  This model is predicting the WAR baseball stat which shows the Wins Above Replacement which means how helpful they are to their team.
+```{python}
+import pandas as pd
+from xgboost import XGBRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+
+# Load the CSV
+df = pd.read_csv('baseball_stats.csv', encoding='utf-8')
+
+# Drop non-numeric or irrelevant columns (like names or awards for now)
+df = df.drop(['Rk', 'Player', 'Team', 'Lg', 'Pos', 'Awards'], axis=1, errors='ignore')
+
+# Optional: Encode any remaining non-numeric columns
+for col in df.columns:
+    if df[col].dtype == 'object':
+        df[col] = LabelEncoder().fit_transform(df[col])
+
+# Drop rows with missing values (simplest strategy)
+df = df.dropna()
+
+# Separate features and target
+X = df.drop('WAR', axis=1)
+y = df['WAR']
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train model
+model = XGBRegressor()
+model.fit(X_train, y_train)
+
+# Predict
+predictions = model.predict(X_test)
+for i, prediction in enumerate(predictions):
+    print(f"Prediction {i + 1}: {prediction:.2f}")
+    print(f"Actual {i + 1}: {y_test.iloc[i]:.2f}")
+
+```
+
+# model 2
+This model predicts the stats that Shohei Ohtani will would have for his next game which came out to be actually 2 AB, 2 R, 1 H, O HR, 0.299 AVG.
+```{python}
+import pandas as pd
+import xgboost as xgb
+import math
+from sklearn.metrics import mean_squared_error, r2_score
+
+
+# 1. Load the data
+df = pd.read_csv("Shohei Ohtani Last Season.csv")
+
+# 2. Drop non-numeric or non-useful columns
+# Adjust as necessary based on your data
+df = df.drop(columns=['Date', 'OPP', 'Team'], errors='ignore')
+
+
+
+# 3. Set target and features
+target_stats = ['AB','R','H','HR','AVG']  # AtBat, Runs, Hits, HomeRuns, AverageBattingScore
+
+
+# Clean data 
+features = df.drop(columns=target_stats, errors='ignore')
+features = pd.get_dummies(features).fillna(0)
+
+# Create an Input for the next game
+next_game_features = features.mean().to_frame().T
+
+# Ensure the next game input matches the columns
+next_game_features = next_game_features[features.columns]
+
+# Run Calculations on Target Stats
+print("Shohei Ohtani's Next Game Results\n")
+print(f"{'Stat':<10} {'Prediction':>10}")
+print('-' * 21)
+for stat in target_stats:
+    if stat not in df.columns:
+        print(f"X Stat '{stat}' not found. Skipping.")
+        continue
+    
+    # Drop Rows where the stat is missing
+    stat_df = df[df[stat].notna()]
+    y = stat_df[stat]
+    X = features.loc[stat_df.index]
+    
+    # 4. Train XGBoost regressor
+    model = xgb.XGBRegressor(objective='reg:squarederror')
+    model.fit(X, y)    
+    
+    # 5. Predict Hits in the next game
+    prediction = model.predict(next_game_features)[0]
+
+    # 6. Print results
+    print(f"{stat:<10} {prediction:.2f}")
+
+# Evaluate model on training data
+train_preds = model.predict(X)
+mse = mean_squared_error(y, train_preds)
+r2 = r2_score(y, train_preds)
+print(f"Training MSE: {mse:.2f}, R-Squared: {r2:.2f}")
+```
+
+# model 3
+This model makes very good predictions which are usually very close to the actual number.  This model is trying to predict the BA or the Batting Average for players overall stats for the year based on all of the other measurables for the year.
+```{python}
+import pandas as pd
+from sklearn.model_selection import train_test_split
+import xgboost as xgb
+# Import relevant metrics
+from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, classification_report
+
+# 1. Load Data
+try:
+    df = pd.read_csv('baseball_stats.csv', encoding='windows-1252')
+    df = df.drop(columns=['Player', 'Team', 'Lg', 'WAR', 'Pos', 'Awards'])
+except FileNotFoundError:
+    print("Error: CSV file not found.")
+    exit()
+
+target_column_index = 15
+
+# 2. Identify Features (X) and Target (y)
+if target_column_index >= len(df.columns):
+    print(f"Error: Column at index {target_column_index} does not exist.")
+    exit()
+
+y = df.iloc[:, target_column_index]  # Target variable (the 19th column)
+# All other columns as features
+X = df.drop(df.columns[target_column_index], axis=1)
+
+# 3. Split Data into Training and Testing Sets
+X_train, X_test, y_train, y_test = train_test_split(
+    # You can adjust test_size and random_state
+    X, y, test_size=0.2, random_state=42)
+
+# 4. Initialize and Train the XGBoost Model
+# Determine if it's a regression or classification task based on the target variable
+if pd.api.types.is_numeric_dtype(y):
+    # Regression task
+    # Or other regression objectives
+    model = xgb.XGBRegressor(objective='reg:squarederror')
+    model.fit(X_train, y_train)
+else:
+    # Classification task
+    # You might need to handle class imbalances or multi-class scenarios
+    model = xgb.XGBClassifier(objective='multi:softmax' if y.nunique(
+    ) > 2 else 'binary:logistic')  # Or other classification objectives
+    model.fit(X_train, y_train)
+
+# 4.5 Save the model
+model.save_model("initial_model.json")
+
+# 5. Make Predictions on the Test Set
+predictions = model.predict(X_test)
+for i, prediction in enumerate(predictions):
+    print(f"Prediction {i + 1}: {prediction:.2f}")
+    print(f"Actual {i + 1}: {y_test.iloc[i]:.2f}")
+
+# 6. Evaluate the Model
+print("\n--- Model Evaluation ---")
+if pd.api.types.is_numeric_dtype(y):
+    # Regression metrics
+    mse = mean_squared_error(y_test, predictions)
+    r2 = r2_score(y_test, predictions)
+    print(f"Mean Squared Error: {mse:.4f}")
+    print(f"R-squared: {r2:.4f}")
+else:
+    # Classification metrics
+    accuracy = accuracy_score(y_test, predictions)
+    report = classification_report(y_test, predictions)
+    print(f"Accuracy: {accuracy:.4f}")
+    print("Classification Report:\n", report)
+
+```
+
+
+# Cleaning the data
+The rest of the sections show what we did in our research about cleaning data.
+
+```{python}
+import pandas as pd
+import re
+
+# Read in the CSV file
+baseball_stats = pd.read_csv('baseball_stats.csv', encoding_errors ="ignore")
+
+# Display the first few rows of the dataframe
+baseball_stats.head()
+
+```
+
+
+Removing the team and league columns.
+
+
+```{python}
+stats = baseball_stats.drop(columns =['Team', 'Lg'])
+stats
+# baseball_stats.query('Player == "Jos Tena*"')
+```
+
+
+
+Changing the position and awards columns into numbers
+Awards: MVP, GG, SS, AS
+GG, SS, AS are all in a boolean format. 0 if they didn't get it and 1 if they did
+MVP is numbered by the number that comes after it, ex: MVP-9, MVP-12, etc.
+
+```{python}
+stats['GG'] = stats['Awards'].str.contains('GG', na=False).astype(int)
+stats['AS'] = stats['Awards'].str.contains('AS', na=False).astype(int)
+stats['SS'] = stats['Awards'].str.contains('SS', na=False).astype(int)
+
+# Add MVP ranking column
+def extract_mvp_rank(awards):
+    if pd.isna(awards):
+        return None
+    match = re.search(r'MVP-(\d+)', awards)
+    return int(match.group(1)) if match else None
+
+stats['MVP'] = stats['Awards'].apply(extract_mvp_rank)
+
+stats = stats.drop(columns=['Awards'])
+stats
+```
+
+
+changing the position column into numbers 
+
+```{python}
+position_map = {
+    '1': 1, '2': 2, '3': 3, '4': 4, '5': 5,
+    '6': 6, '7': 7, '8': 8, '9': 9
+}
+
+# Function to extract the primary numeric position
+def extract_primary_position(pos_string):
+    if pd.isna(pos_string):
+        return None
+    # Find all digits 1-9
+    digits = re.findall(r'[1-9]', pos_string)
+    if not digits:
+        return None
+    return position_map[digits[0]]  # Return the first valid position number
+
+# Apply the function to the 'Pos' column
+stats['Position'] = stats['Pos'].apply(extract_primary_position)
+stats = stats.drop(columns=['Pos'])
+stats
+```
+
+Eliminating duplicate player rows.
+
+```{python}
+# Group by 'Player' and find the maximum value of the 'GG' column
+max_g = stats.groupby('Player', as_index=False)['G'].max()
+
+# Merge the maximum 'GG' values back to the original DataFrame to filter rows
+merged_data = stats.merge(max_g, on=['Player', 'G'])
+
+# Drop duplicates if necessary
+merged_data = merged_data.drop_duplicates()
+
+# Query for a specific player (e.g., "Jos Tena*")
+merged_data.query('Player == "Jose Tena"')
+```
+
+
+Makes a new cleaner CSV file out of the cleaned data.
+```{python}
+# Save the merged_data DataFrame to a CSV file
+merged_data.to_csv('merged_baseball_stats.csv', index=False)
+```
