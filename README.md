@@ -14,6 +14,8 @@ Steps to build and/or run the software:
 2. Install the xgboost, pandas, and scikit-learn python libraries.
 3. Run one of our working models such as ```gettingStartedXgboost.py``` or ```shoheiPredictions.py```.
 
+   1.You can also go to [machine Learning](https://rylandbangerter.github.io/applied-programming/index.html) to see the results.
+
 Instructions for using the software:
 
 1. Run one of the ```.py``` files provided.
