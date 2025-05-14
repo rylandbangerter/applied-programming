@@ -20,7 +20,7 @@ model = pickle.load(open('shoheiPredictions.py', 'rb'))
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('frontend.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
