@@ -43,7 +43,7 @@ else:
     model.fit(X_train, y_train)
 
 # 4.5 Save the model
-model.save_model("initial_model.json")
+model.save_model("predict_BA.json")
 
 # 5. Make Predictions on the Test Set
 predictions = model.predict(X_test)
