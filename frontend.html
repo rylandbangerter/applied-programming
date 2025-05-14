@@ -14,7 +14,7 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -34,6 +34,35 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const db = getFirestore(app);
+
+    // async function uploadGameStats() {
+    //   const response = await fetch("Shohei_Ohtani_Last_Season.csv");
+    //   const csvText = await response.text();
+    //   const rows = csvText.split("\n").map(row => row.split(","));
+      
+    //   const headers = rows[0]; // First row as field names
+    //   for (let i = 1; i < rows.length; i++) {
+    //     const row = rows[i];
+    //     if (row.length !== headers.length) continue; // Skip invalid rows
+
+    //     const date = row[0]; // Assuming the first column is the date
+    //     const docName = `Shohei_Ohtani_${date}`;
+    //     const data = {};
+
+    //     headers.forEach((header, index) => {
+    //       data[header] = row[index];
+    //     });
+
+    //     try {
+    //       await setDoc(doc(db, "gameStats", docName), data);
+    //       console.log(`Document ${docName} added successfully.`);
+    //     } catch (error) {
+    //       console.error(`Error adding document ${docName}:`, error);
+    //     }
+    //   }
+    // }
+
+    // uploadGameStats();
 
     async function displayData() {
       // Fetch data from Firestore
