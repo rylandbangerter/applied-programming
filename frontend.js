@@ -25,3 +25,22 @@ button.addEventListener('click', async () => {
         alert('Error: ' + error.message);
     }
 });
+
+// This is for getting a prediction from the AI model that connects to the button and the backend 
+async function getPrediction() {
+      const playerId = document.getElementById('player').value;
+
+      const response = await fetch('/predict', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ player_id: playerId })
+      });
+
+      const data = await response.json();
+
+      if (data.prediction) {
+        document.getElementById('result').innerText = `Predicted Stat: ${data.prediction}`;
+      } else {
+        document.getElementById('result').innerText = `Error: ${data.error}`;
+      }
+    }
