@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="AI Stat Predictor for Baseball Players" />
-    <meta name="keywords" content="Baseball, AI, Stat Predictor, Player Stats" />
+    <meta
+      name="keywords"
+      content="Baseball, AI, Stat Predictor, Player Stats"
+    />
     <meta name="author" content="Applied Programming Team" />
     <link rel="stylesheet" href="frontend.css" />
     <title>AI Stat Predictor</title>
@@ -12,46 +15,71 @@
   </head>
   <body>
     <h1>AI Stat Predictor</h1>
-    <label for="stats">Choose a stat:</label>
-    <select id="stats" name="stats">
-    <option value="choose">Select one</option>
-      <option value="WAR">WAR (Wins Above Replacement)</option>
-      <option value="G">G (Games Played)</option>
-      <option value="PA">PA (Plate Appearances)</option>
-      <option value="AB">AB (At Bats)</option>
-      <option value="R">R (Runs)</option>
-      <option value="H">H (Hits)</option>
-      <option value="2B">2B (Doubles)</option>
-      <option value="3B">3B (Triples)</option>
-      <option value="HR">HR (Home Runs)</option>
-      <option value="RBI">RBI (Runs Batted In)</option>
-      <option value="SB">SB (Stolen Bases)</option>
-      <option value="CS">CS (Caught Stealing)</option>
-      <option value="BB">BB (Walks)</option>
-      <option value="SO">SO (Strikeouts)</option>
-      <option value="BA">BA (Batting Average)</option>
-      <option value="OBP">OBP (On-Base Percentage)</option>
-      <option value="SLG">SLG (Slugging Percentage)</option>
-      <option value="OPS">OPS (On-base + Slugging)</option>
-      <option value="OPS+">OPS+ (Adjusted OPS)</option>
-      <option value="rOBA">rOBA (Weighted On-Base Avg)</option>
-      <option value="Rbat+">Rbat+ (Batting Runs Above Avg)</option>
-      <option value="TB">TB (Total Bases)</option>
-      <option value="GIDP">GIDP (Grounded into Double Plays)</option>
-      <option value="HBP">HBP (Hit By Pitch)</option>
-      <option value="SH">SH (Sacrifice Hits)</option>
-      <option value="SF">SF (Sacrifice Flies)</option>
-      <option value="IBB">IBB (Intentional Walks)</option>
-      <option value="GG">GG (Gold Gloves)</option>
-      <option value="AS">AS (All-Star Appearances)</option>
-      <option value="SS">SS (Silver Slugger Awards)</option>
-      <option value="MVP">MVP (Most Valuable Player)</option>
-      <option value="Position">Position</option>
-    </select>
 
-    <h2>Prediction Result:</h2>
+    <h3>
+      Welcome to our Stat Predictor. Select the stat that you would like to
+      predict and the name of the player that you want to predict it for.
+    </h3>
+
+    <div id="stat-selection">
+      <label for="stats">Choose a stat:</label>
+      <select id="stats" name="stats">
+        <option value="choose">Select one</option>
+        <option value="WAR">WAR (Wins Above Replacement)</option>
+        <option value="G">G (Games Played)</option>
+        <option value="PA">PA (Plate Appearances)</option>
+        <option value="AB">AB (At Bats)</option>
+        <option value="R">R (Runs)</option>
+        <option value="H">H (Hits)</option>
+        <option value="2B">2B (Doubles)</option>
+        <option value="3B">3B (Triples)</option>
+        <option value="HR">HR (Home Runs)</option>
+        <option value="RBI">RBI (Runs Batted In)</option>
+        <option value="SB">SB (Stolen Bases)</option>
+        <option value="CS">CS (Caught Stealing)</option>
+        <option value="BB">BB (Walks)</option>
+        <option value="SO">SO (Strikeouts)</option>
+        <option value="BA">BA (Batting Average)</option>
+        <option value="OBP">OBP (On-Base Percentage)</option>
+        <option value="SLG">SLG (Slugging Percentage)</option>
+        <option value="OPS">OPS (On-base + Slugging)</option>
+        <option value="OPS+">OPS+ (Adjusted OPS)</option>
+        <option value="rOBA">rOBA (Weighted On-Base Avg)</option>
+        <option value="Rbat+">Rbat+ (Batting Runs Above Avg)</option>
+        <option value="TB">TB (Total Bases)</option>
+        <option value="GIDP">GIDP (Grounded into Double Plays)</option>
+        <option value="HBP">HBP (Hit By Pitch)</option>
+        <option value="SH">SH (Sacrifice Hits)</option>
+        <option value="SF">SF (Sacrifice Flies)</option>
+        <option value="IBB">IBB (Intentional Walks)</option>
+        <option value="GG">GG (Gold Gloves)</option>
+        <option value="AS">AS (All-Star Appearances)</option>
+        <option value="SS">SS (Silver Slugger Awards)</option>
+        <option value="MVP">MVP (Most Valuable Player)</option>
+        <option value="Position">Position</option>
+      </select>
+    </div>
+    <div id="player-selection">
+      <label for="players">Choose a player:</label>
+      <select>
+        <option value="choose">Select one</option>
+        <option value="player1">Player 1</option>
+        <option value="player2">Player 2</option>
+        <option value="player3">Player 3</option>
+        <option value="player4">Player 4</option>
+        <option value="player5">Player 5</option>
+        <option value="player6">Player 6</option>
+        <option value="player7">Player 7</option>
+        <option value="player8">Player 8</option>
+        <option value="player9">Player 9</option>
+        <!-- Once we get the database up and running and connected to the front end, then we will be able to have the players be listed in the drop down boxes.  -->
+      </select>
+    </div>
+    <div>
+      <button id="predict-button">Predict</button>
+    </div>
+
+    <p>Prediction Result:</p>
     <div id="prediction-result"></div>
-
-    
   </body>
 </html>
