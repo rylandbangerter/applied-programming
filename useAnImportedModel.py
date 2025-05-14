@@ -14,7 +14,7 @@ num_features = model.feature_names if hasattr(model, 'feature_names') else None
 if num_features:
     n_features = len(num_features)
 else:
-    n_features = 27
+    raise Exception("Couldn't find the model features")
 
 print(f"This model expects {n_features} input features.")
 
