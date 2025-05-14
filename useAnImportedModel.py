@@ -1,4 +1,4 @@
-import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 import xgboost as xgb
 
@@ -15,7 +15,7 @@ num_features = model.feature_names if hasattr(model, 'feature_names') else None
 if num_features:
     n_features = len(num_features)
 else:
-    n_features = 31
+    n_features = 27
 
 print(f"This model expects {n_features} input features.")
 
