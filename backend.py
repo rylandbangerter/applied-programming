@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 
-## This is just sample code so we would need to change it so that it works with our database and models
+## This is just sample code so we would need to change it so that it works with our database and models.
 
 # Init Flask
 app = Flask(__name__)
@@ -16,7 +16,7 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 # Load your AI model
-model = pickle.load(open('shoheiPredictions.py', 'rb'))
+model = pickle.load(open('useAnImportedModel.py', 'rb'))
 
 @app.route('/')
 def index():
