@@ -7,7 +7,7 @@ import numpy as np
 import joblib
 
 # 1. Load the data
-df = pd.read_csv("Shohei Ohtani Last Season.csv")
+df = pd.read_csv("Shohei_Ohtani_Last_Season.csv")
 
 # 2. Drop non-numeric or non-useful columns
 df = df.drop(columns=['Date', 'OPP', 'Team'], errors='ignore')
