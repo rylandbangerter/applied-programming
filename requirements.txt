@@ -3,3 +3,4 @@ pandas
 xgboost
 typing
 fastapi
+scikit-learn

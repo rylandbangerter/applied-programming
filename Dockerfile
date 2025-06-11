@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "./useAnImportedModel.py" ]
+CMD [ "python", "./shoheiPredictionsV2.py" ]
