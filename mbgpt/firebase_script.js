@@ -50,46 +50,72 @@ const db = getFirestore(app);
 
 // uploadGameStats();
 
-async function displayData() {
-    // Fetch data from Firestore
-    const outputDiv = document.getElementById("output-data");
-    try {
-    const querySnapshot = await getDocs(collection(db, "playerData"));
-    console.log("Data fetched:", querySnapshot.size, "documents found.");
-    querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        console.log("Document data:", data);
-        const dataElement = document.createElement("p");
-        dataElement.textContent = JSON.stringify(data);
-        outputDiv.appendChild(dataElement);
-    });
-    } catch (error) {
-    console.error("Error fetching data:", error);
-    }
-}
+// async function displayData() {
+//     // Fetch data from Firestore
+//     const outputDiv = document.getElementById("output-data");
+//     try {
+//     const querySnapshot = await getDocs(collection(db, "playerData"));
+//     console.log("Data fetched:", querySnapshot.size, "documents found.");
+//     querySnapshot.forEach((doc) => {
+//         const data = doc.data();
+//         console.log("Document data:", data);
+//         const dataElement = document.createElement("p");
+//         dataElement.textContent = JSON.stringify(data);
+//         outputDiv.appendChild(dataElement);
+//     });
+//     } catch (error) {
+//     console.error("Error fetching data:", error);
+//     }
+// }
 
-displayData();
+// displayData();
+
 async function getPlayer() {
-const dropdown = document.getElementById("playerDropdown");
+    const dropdown = document.getElementById("playerDropdown");
 
-try {
-    const querySnapshot = await getDocs(collection(db, "playerData"));
-    console.log("Data fetched:", querySnapshot.size, "documents found.");
+    try {
+        const querySnapshot = await getDocs(collection(db, "playerData"));
+        console.log("Data fetched:", querySnapshot.size, "documents found.");
 
-    querySnapshot.forEach((doc) => {
-    const data = doc.data();
-    const fullName = `${data.first_name} ${data.last_name}`;
+        querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const fullName = `${data.first_name} ${data.last_name}`;
 
-    // Create option element
-    const option = document.createElement("option");
-    option.value = fullName;
-    option.textContent = fullName;
+        // Create option element
+        const option = document.createElement("option");
+        option.value = fullName;
+        option.textContent = fullName;
 
-    dropdown.appendChild(option);
-    });
-} catch (error) {
-    console.error("Error fetching player data:", error);
+        dropdown.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error fetching player data:", error);
     }
 }
 
 getPlayer();
+
+async function getStats() {
+    const dropdown = document.getElementById("statsDropdown");
+
+    try {
+        const querySnapshot = await getDocs(collection(db, "stats"));
+        console.log("Data fetched:", querySnapshot.size, "documents found.");
+
+        querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const fullName = `${doc.id} (${data.name})`;
+
+        // Create option element
+        const option = document.createElement("option");
+        option.value = fullName;
+        option.textContent = fullName;
+
+        dropdown.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error fetching stat data:", error);
+    }
+}
+
+getStats();
