@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #f5f7fa;
     color: #222;
-    margin: 0;
+    margin: 10px 5%;
     padding: 0;
 }
 
@@ -16,7 +16,7 @@ header {
 
 h1, h3, p, h2 {
     text-align: center;
-     margin-top: 0;
+    margin-top: 0;
 }
 
 main {
@@ -31,18 +31,20 @@ main {
 
 label {
     display: block;
-    margin-bottom: 0.5rem;
     font-weight: 500;
+    width: 100%;
+    justify-self: center;
+    margin-top: 2px;
 }
 
 input, select, textarea {
     width: 100%;
     padding: 0.7rem;
-    margin-bottom: 1.2rem;
     border: 1px solid #cfd8dc;
     border-radius: 6px;
     font-size: 1rem;
     box-sizing: border-box;
+    justify-self: center;
 }
 
 button {
@@ -73,21 +75,27 @@ button:hover {
 }
 
 #player-selection, #stat-selection {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
     align-items: center;
-    padding: 0.5rem;
-}
-
-label {
-    padding-left: 50px;
+    padding: 10px;
+    margin: 20px 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 
 #moneyball {
     display: block;
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
     max-width: 600px;
     height: auto;
-    padding: 0.5rem;
+    border-radius: 50px;
+}
+
+@media screen and (min-width: 700px) {
+    #player-selection, #stat-selection {
+        grid-template-columns: 1fr 6fr;
+    }
 }
