@@ -2,10 +2,27 @@ import pandas as pd
 import xgboost as xgb
 import math
 from sklearn.metrics import mean_squared_error, r2_score
+# connecting the python file to the html
 
+from flask import Flask, request, jsonify
+import joblib
+
+app = Flask(__name__)
+model = joblib.load("shohei_multioutput_model.pkl")
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    input_data = request.json
+    df_input = pd.DataFrame([input_data])
+    df_input = pd.get_dummies(df_input).reindex(columns=model.estimators_[0].feature_names_in_, fill_value=0)
+    prediction = model.predict(df_input)[0]
+    
+    return jsonify({
+        "prediction": {stat: round(pred, 2) for stat, pred in zip(['AB', 'R', 'H', 'HR', 'AVG'], prediction)}
+    })
 
 # 1. Load the data
-df = pd.read_csv("Shohei Ohtani Last Season.csv")
+df = pd.read_csv("Shohei_Ohtani_Last_Season.csv")
 
 # 2. Drop non-numeric or non-useful columns
 # Adjust as necessary based on your data

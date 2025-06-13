@@ -6,6 +6,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import numpy as np
 import joblib
 
+
 # 1. Load the data
 df = pd.read_csv("Shohei_Ohtani_Last_Season.csv")
 

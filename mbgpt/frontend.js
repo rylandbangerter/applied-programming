@@ -5,42 +5,64 @@ and it exposes an endpoint like POST /predict that returns a prediction.
 This JS code adds a button and calls the backend to get a prediction.
 */
 
-const button = document.createElement('button');
-button.textContent = 'Predict Stat';
-document.body.appendChild(button);
 
-button.addEventListener('click', async () => {
-    // Example payload, adjust as needed for the model
-    const inputData = { feature1: 42, feature2: 3.14 };
+// This is for getting a prediction from the AI model that connects to the button and the backend
+// async function getPrediction() {
+//   const playerId = document.getElementById("player").value;
 
-    try {
-        const response = await fetch('http://localhost:5000/predict', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(inputData)
+//   const response = await fetch("/predict", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ player_id: playerId }),
+//   });
+
+//   const data = await response.json();
+
+//   if (data.prediction) {
+//     document.getElementById(
+//       "result"
+//     ).innerText = `Predicted Stat: ${data.prediction}`;
+//   } else {
+//     document.getElementById("result").innerText = `Error: ${data.error}`;
+//   }
+// }
+
+// Calling the Docker image
+fetch("http://localhost:5000/api/data")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+  const cors = require('cors');
+app.use(cors());
+
+
+// running a python file in HTML 
+  async function getPrediction() {
+        const number = document.getElementById("numberInput").value;
+        const response = await fetch("http://localhost:5000/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ number }),
         });
-        const result = await response.json();
-        alert('Predicted stat: ' + result.prediction);
-    } catch (error) {
-        alert('Error: ' + error.message);
-    }
-});
+        const data = await response.json();
+        document.getElementById("result").textContent =
+          "Prediction: " + data.prediction;
+  }
+  async function getPrediction() {
+    const response = await fetch("http://localhost:5000/predict", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ request: "predictStats" }), // placeholder
+    });
 
-// This is for getting a prediction from the AI model that connects to the button and the backend 
-async function getPrediction() {
-      const playerId = document.getElementById('player').value;
+    const data = await response.json();
+    const resultDiv = document.getElementById("result");
 
-      const response = await fetch('/predict', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ player_id: playerId })
-      });
-
-      const data = await response.json();
-
-      if (data.prediction) {
-        document.getElementById('result').innerText = `Predicted Stat: ${data.prediction}`;
-      } else {
-        document.getElementById('result').innerText = `Error: ${data.error}`;
+    if (data) {
+      resultDiv.innerHTML = "<strong>Predicted Stats:</strong><br>";
+      for (const [stat, value] of Object.entries(data)) {
+        resultDiv.innerHTML += `${stat}: ${value}<br>`;
       }
+    } else {
+      resultDiv.textContent = "Error: Could not fetch predictions.";
     }
+  }
