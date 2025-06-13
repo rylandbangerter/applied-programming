@@ -11,6 +11,7 @@
   <title>AI Stat Predictor</title>
   <!-- <script src="frontend.js"></script> -->
   <script defer src="firebase_script.js" type="module"></script>
+  <script src = "frontend.js" defer ></script>
 </head>
 
 <body>
@@ -39,12 +40,33 @@
   </div>
  <div>
       <button onclick="getPrediction()">Predict</button>
-      <p id="result"></p>
+<p id="result"></p>
+
     </div>
     <img id="moneyball" src="moneyball.jpg" alt="Moneyball" width="300" height="200" />
 
-    <!-- <p>Prediction Result:</p>
-    <div id="prediction-result"></div> -->
+    
 </body>
-  </body>
+<!-- <script>
+  async function getPrediction() {
+    const response = await fetch("http://localhost:5000/predict", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ request: "predictStats" }), // placeholder
+    });
+
+    const data = await response.json();
+    const resultDiv = document.getElementById("result");
+
+    if (data) {
+      resultDiv.innerHTML = "<strong>Predicted Stats:</strong><br>";
+      for (const [stat, value] of Object.entries(data)) {
+        resultDiv.innerHTML += `${stat}: ${value}<br>`;
+      }
+    } else {
+      resultDiv.textContent = "Error: Could not fetch predictions.";
+    }
+  }
+</script> -->
+
 </html>
