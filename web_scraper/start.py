@@ -59,7 +59,8 @@ def scrape_player_page_and_years(player_url, driver, player_name):
     combined_text.append(f"==== Main Player Page ====\n{main_text}\n")
 
     # Find all year/game log links like /players/gl.fcgi?id= and contain '&t=b&year='
-    year_links = soup.select("a[href^='/players/gl.fcgi?id='][href*='&t=b&year=']")
+    # remove 2025 when wanting to scrape all years
+    year_links = soup.select("a[href^='/players/gl.fcgi?id='][href*='&t=b&year=2025']")
     print("Year links found:", [a.get("href") for a in year_links])
     visited = set()
     for a in year_links:
