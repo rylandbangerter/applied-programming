@@ -78,7 +78,9 @@
       const db = getFirestore(app);
 
       async function uploadGameStats() {
-        const response = await fetch("Shohei_Ohtani_Last_Season.csv");
+        let userInput = prompt("Please enter the player's name:");
+        const player_name = userInput.replace(/\s+/g, '_'); // Replace spaces with underscores
+        const response = await fetch(`${player_name}_2025.csv`);
         const csvText = await response.text();
         const rows = csvText.split("\n").map(row => row.split(","));
 
@@ -88,7 +90,7 @@
           if (row.length !== headers.length) continue; // Skip invalid rows
 
           const date = row[0]; // Assuming the first column is the date
-          const docName = `Shohei_Ohtani_${date}`;
+          const docName = `${player_name}_${date}`;
           const data = {};
 
           headers.forEach((header, index) => {
