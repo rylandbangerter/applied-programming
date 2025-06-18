@@ -27,15 +27,22 @@
       predict and the name of the player that you want to predict it for.
     </h3>
 
-    <div id="stat-selection">
+    <div class="selection" id="stat-selection">
       <label for="stats">Choose a stat:</label>
       <select id="statsDropdown" name="stats">
         <option value="choose">Select one</option>
       </select>
     </div>
-    <div id="player-selection">
+    <div class="selection" id="player-selection">
       <label for="players">Choose a player:</label>
       <select id="playerDropdown">
+        <!-- firebase_script.js automatically grabs players from Firebase database -->
+        <option value="choose">Select one</option>
+      </select>
+    </div>
+    <div class="selection" id="opponent-selection">
+      <label for="opponents">Choose an opponent:</label>
+      <select id="opponentDropdown">
         <!-- firebase_script.js automatically grabs players from Firebase database -->
         <option value="choose">Select one</option>
       </select>
@@ -52,8 +59,8 @@
       height="200"
     />
     <div id="predictionResults">
-      <h2>Shohei Ohtani</h2>
-      <h3>MVP</h3>
+      <p>Shohei Ohtani</p>
+      <p>MVP</p>
       <p>3</p>
     </div>
   </body>

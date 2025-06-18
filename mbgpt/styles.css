@@ -74,7 +74,7 @@ button:hover {
     font-weight: 500;
 }
 
-#player-selection, #stat-selection {
+.selection {
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
@@ -108,11 +108,12 @@ button:hover {
 }
 
 @media screen and (min-width: 700px) {
-    #player-selection, #stat-selection {
+    .selection {
         grid-template-columns: 1fr 6fr;
     }
 
     #predictionResults {
         grid-template-columns: 1fr 1fr 1fr;
+        font-size: 1em;
     }
 }
