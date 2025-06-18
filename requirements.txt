@@ -4,3 +4,4 @@ xgboost
 typing
 fastapi
 scikit-learn
+uvicorn
