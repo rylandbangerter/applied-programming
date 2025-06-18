@@ -2,8 +2,12 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #f5f7fa;
     color: #222;
-    margin: 10px 5%;
     padding: 0;
+    margin: 0 auto;
+}
+
+.main-page {
+    margin: 10px 5%;
 }
 
 header {
@@ -17,6 +21,11 @@ header {
 h1, h3, p, h2 {
     text-align: center;
     margin-top: 0;
+}
+
+#parallax h1 {
+    color: white;
+    margin: 0 auto;
 }
 
 main {
@@ -111,6 +120,23 @@ button:hover {
 
 #predictionResults p {
     margin: 0 auto;
+}
+
+#parallax {
+    background-image: url("moneyball-parallax.jpg");
+    font-size: 3em;
+  
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media screen and (min-width: 700px) {

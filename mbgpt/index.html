@@ -19,49 +19,51 @@
 
   <body>
     <!-- <div id="output-data"></div> -->
+    <div id="parallax">
+      <h1>MBGPT</h1>
+    </div>
+    <div class="main-page">
+      <h3>
+        Welcome to our AI Stat Predictor. Select the stat that you would like to
+        predict and the name of the player that you want to predict it for.
+      </h3>
 
-    <h1>MBGPT</h1>
-
-    <h3>
-      Welcome to our AI Stat Predictor. Select the stat that you would like to
-      predict and the name of the player that you want to predict it for.
-    </h3>
-
-    <div class="selection" id="stat-selection">
-      <label for="stats">Choose a stat:</label>
-      <select id="statsDropdown" name="stats">
-        <option value="choose">Select one</option>
-      </select>
-    </div>
-    <div class="selection" id="player-selection">
-      <label for="players">Choose a player:</label>
-      <select id="playerDropdown">
-        <!-- firebase_script.js automatically grabs players from Firebase database -->
-        <option value="choose">Select one</option>
-      </select>
-    </div>
-    <div class="selection" id="opponent-selection">
-      <label for="opponents">Choose an opponent:</label>
-      <select id="opponentDropdown">
-        <!-- firebase_script.js automatically grabs players from Firebase database -->
-        <option value="choose">Select one</option>
-      </select>
-    </div>
-    <div>
-      <button onclick="getPrediction()">Predict</button>
-      <p id="result"></p>
-    </div>
-    <img
-      id="moneyball"
-      src="moneyball.jpg"
-      alt="Moneyball"
-      width="300"
-      height="200"
-    />
-    <div id="predictionResults">
-      <p>Shohei Ohtani</p>
-      <p>MVP</p>
-      <p>3</p>
+      <div class="selection" id="stat-selection">
+        <label for="stats">Choose a stat:</label>
+        <select id="statsDropdown" name="stats">
+          <option value="choose">Select one</option>
+        </select>
+      </div>
+      <div class="selection" id="player-selection">
+        <label for="players">Choose a player:</label>
+        <select id="playerDropdown">
+          <!-- firebase_script.js automatically grabs players from Firebase database -->
+          <option value="choose">Select one</option>
+        </select>
+      </div>
+      <div class="selection" id="opponent-selection">
+        <label for="opponents">Choose an opponent:</label>
+        <select id="opponentDropdown">
+          <!-- firebase_script.js automatically grabs players from Firebase database -->
+          <option value="choose">Select one</option>
+        </select>
+      </div>
+      <div>
+        <button onclick="getPrediction()">Predict</button>
+        <p id="result"></p>
+      </div>
+      <img
+        id="moneyball"
+        src="moneyball.jpg"
+        alt="Moneyball"
+        width="300"
+        height="200"
+      />
+      <div id="predictionResults">
+        <p>Shohei Ohtani</p>
+        <p>MVP</p>
+        <p>3</p>
+      </div>
     </div>
   </body>
   <script type= "module">
