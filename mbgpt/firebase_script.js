@@ -1,25 +1,25 @@
 // Import the functions you need from the SDKs you need
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
-// import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//     apiKey: "AIzaSyCL_Po7HXEyKAKDsLvoSCNy-Bb9NPmFxCo",
-//     authDomain: "moneyball-a1cab.firebaseapp.com",
-//     projectId: "moneyball-a1cab",
-//     storageBucket: "moneyball-a1cab.firebasestorage.app",
-//     messagingSenderId: "1002557739869",
-//     appId: "1:1002557739869:web:a035e6b37226a8e7560eb4",
-//     measurementId: "G-Q25HCXCHC6"
-// };
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
+import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyCL_Po7HXEyKAKDsLvoSCNy-Bb9NPmFxCo",
+    authDomain: "moneyball-a1cab.firebaseapp.com",
+    projectId: "moneyball-a1cab",
+    storageBucket: "moneyball-a1cab.firebasestorage.app",
+    messagingSenderId: "1002557739869",
+    appId: "1:1002557739869:web:a035e6b37226a8e7560eb4",
+    measurementId: "G-Q25HCXCHC6"
+};
 
 // // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-// const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
 
 // async function uploadGameStats() {
 //   const response = await fetch("Shohei_Ohtani_Last_Season.csv");
