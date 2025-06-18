@@ -28,11 +28,11 @@ This JS code adds a button and calls the backend to get a prediction.
 // }
 
 // Calling the Docker image
-fetch("http://localhost:5000/api/data")
-  .then((res) => res.json())
-  .then((data) => console.log(data));
-  const cors = require('cors');
-app.use(cors());
+// fetch("http://localhost:5000/api/data")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+//   const cors = require('cors');
+// app.use(cors());
 
 
 // running a python file in HTML 

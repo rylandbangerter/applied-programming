@@ -52,10 +52,10 @@
       height="200"
     />
   </body>
-  <script>
-     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  <script type= "module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
-      import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+      // import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
       import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -78,9 +78,9 @@
       const db = getFirestore(app);
 
       async function uploadGameStats() {
-        let userInput = prompt("Please enter the player's name:");
-        const player_name = userInput.replace(/\s+/g, '_'); // Replace spaces with underscores
-        const response = await fetch(`${player_name}_2025.csv`);
+        // const player_name = userInput.replace(/\s+/g, '_'); // Replace spaces with underscores
+        // const response = await fetch(`${player_name}_2025.csv`);
+        const response = await fetch(`freddie_freeman_2025.csv`);
         const csvText = await response.text();
         const rows = csvText.split("\n").map(row => row.split(","));
 
@@ -89,8 +89,8 @@
           const row = rows[i];
           if (row.length !== headers.length) continue; // Skip invalid rows
 
-          const date = row[0]; // Assuming the first column is the date
-          const docName = `${player_name}_${date}`;
+          const date = row[3]; // Assuming the first column is the date
+          const docName = `freddie_freeman_${date}`;
           const data = {};
 
           headers.forEach((header, index) => {
@@ -98,6 +98,7 @@
           });
 
           try {
+            console.log(data);  // Make sure there are no keys like ""
             await setDoc(doc(db, "gameStats", docName), data);
             console.log(`Document ${docName} added successfully.`);
           } catch (error) {
