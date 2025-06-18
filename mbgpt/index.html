@@ -95,7 +95,7 @@
           if (row.length !== headers.length) continue; // Skip invalid rows
 
           const date = row[3]; // Assuming the first column is the date
-          const docName = `freddie_freeman_${date}`;
+          const docName = `Freddie_Freeman_${date}`;
           const data = {};
 
           headers.forEach((header, index) => {
@@ -133,24 +133,24 @@
     }
 
     displayData();
-    // <!-- async function getPrediction() {
-    //   const response = await fetch("http://localhost:5000/predict", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ request: "predictStats" }), // placeholder
-    //   });
+    async function getPrediction() {
+      const response = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ request: "predictStats" }), // placeholder
+      });
 
-    //   const data = await response.json();
-    //   const resultDiv = document.getElementById("result");
+      const data = await response.json();
+      const resultDiv = document.getElementById("result");
 
-    //   if (data) {
-    //     resultDiv.innerHTML = "<strong>Predicted Stats:</strong><br>";
-    //     for (const [stat, value] of Object.entries(data)) {
-    //       resultDiv.innerHTML += `${stat}: ${value}<br>`;
-    //     }
-    //   } else {
-    //     resultDiv.textContent = "Error: Could not fetch predictions.";
-    //   }
-    // } 
+      if (data) {
+        resultDiv.innerHTML = "<strong>Predicted Stats:</strong><br>";
+        for (const [stat, value] of Object.entries(data)) {
+          resultDiv.innerHTML += `${stat}: ${value}<br>`;
+        }
+      } else {
+        resultDiv.textContent = "Error: Could not fetch predictions.";
+      }
+    } 
   </script>
 </html>
