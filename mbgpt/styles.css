@@ -105,6 +105,12 @@ button:hover {
     width: 90%;
     max-width: 700px;
     justify-self: center;
+    align-items: center;
+    text-align: center;
+}
+
+#predictionResults p {
+    margin: 0 auto;
 }
 
 @media screen and (min-width: 700px) {
@@ -114,6 +120,5 @@ button:hover {
 
     #predictionResults {
         grid-template-columns: 1fr 1fr 1fr;
-        font-size: 1em;
     }
 }
