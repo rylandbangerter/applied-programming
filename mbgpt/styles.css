@@ -26,6 +26,7 @@ h1, h3, p, h2 {
 #parallax h1 {
     color: white;
     margin: 0 auto;
+    -webkit-text-stroke: 2px darkred;
 }
 
 main {
