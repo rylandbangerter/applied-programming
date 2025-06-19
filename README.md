@@ -13,8 +13,8 @@ Steps to build and/or run the software:
 1. Install python on computer.
 2. Install the xgboost, pandas, and scikit-learn python libraries.
 3. Run one of our working models such as ```gettingStartedXgboost.py``` or ```shoheiPredictions.py```.
-
-   1.You can also go to [machine Learning](https://rylandbangerter.github.io/applied-programming/index.html) to see the results.
+4. You can go to our [website](https://rylandbangerter.github.io/applied-programming/mbgpt/index.html) to what it looks like.
+5. You can also go to [machine Learning](https://rylandbangerter.github.io/applied-programming/index.html) to see the results.
 
 Instructions for using the software:
 
@@ -46,4 +46,6 @@ The following items I plan to fix, improve, and/or add to this project in the fu
 * [X] Increase accuracy of prediction
 * [X] Aquire more data on individual players
 * [X] Create an interface, GUI, or html page for software
-* [ ] Connect html page to software
+* [X] Connect dropdowns on html page to Firebase database
+* [X] Update website to look more user friendly
+* [ ] Connect html page to AI model to make predictions
