@@ -14,48 +14,62 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="firebase_script.js" type="module"></script>
-    <script src="frontend.js" defer></script>
+    <!-- <script src="frontend.js" defer></script> -->
   </head>
 
   <body>
-    <div id="output-data"></div>
-
-    <h1>MBGPT</h1>
-
-    <h3>
-      Welcome to our AI Stat Predictor. Select the stat that you would like to
-      predict and the name of the player that you want to predict it for.
-    </h3>
-
-    <div id="stat-selection">
-      <label for="stats">Choose a stat:</label>
-      <select id="statsDropdown" name="stats">
-        <option value="choose">Select one</option>
-      </select>
+    <!-- <div id="output-data"></div> -->
+    <div id="parallax">
+      <h1>MBGPT</h1>
     </div>
-    <div id="player-selection">
-      <label for="players">Choose a player:</label>
-      <select id="playerDropdown">
-        <!-- firebase_script.js automatically grabs players from Firebase database -->
-        <option value="choose">Select one</option>
-      </select>
+    <div class="main-page">
+      <h3>
+        Welcome to our AI Stat Predictor. Select the stat that you would like to
+        predict and the name of the player that you want to predict it for.
+      </h3>
+
+      <div class="selection" id="stat-selection">
+        <label for="stats">Choose a stat:</label>
+        <select id="statsDropdown" name="stats">
+          <option value="choose">Select one</option>
+        </select>
+      </div>
+      <div class="selection" id="player-selection">
+        <label for="players">Choose a player:</label>
+        <select id="playerDropdown">
+          <!-- firebase_script.js automatically grabs players from Firebase database -->
+          <option value="choose">Select one</option>
+        </select>
+      </div>
+      <div class="selection" id="opponent-selection">
+        <label for="opponents">Choose an opponent:</label>
+        <select id="opponentDropdown">
+          <!-- firebase_script.js automatically grabs players from Firebase database -->
+          <option value="choose">Select one</option>
+        </select>
+      </div>
+      <div>
+        <button onclick="getPrediction()">Predict</button>
+        <p id="result"></p>
+      </div>
+      <img
+        id="moneyball"
+        src="moneyball.jpg"
+        alt="Moneyball"
+        width="300"
+        height="200"
+      />
+      <div id="predictionResults">
+        <p>Shohei Ohtani</p>
+        <p>MVP</p>
+        <p>3</p>
+      </div>
     </div>
-    <div>
-      <button onclick="getPrediction()">Predict</button>
-      <p id="result"></p>
-    </div>
-    <img
-      id="moneyball"
-      src="moneyball.jpg"
-      alt="Moneyball"
-      width="300"
-      height="200"
-    />
   </body>
-  <script>
-     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  <script type= "module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
-      import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+      // import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
       import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -78,9 +92,9 @@
       const db = getFirestore(app);
 
       async function uploadGameStats() {
-        let userInput = prompt("Please enter the player's name:");
-        const player_name = userInput.replace(/\s+/g, '_'); // Replace spaces with underscores
-        const response = await fetch(`${player_name}_2025.csv`);
+        // const player_name = userInput.replace(/\s+/g, '_'); // Replace spaces with underscores
+        // const response = await fetch(`${player_name}_2025.csv`);
+        const response = await fetch(`freddie_freeman_2025.csv`);
         const csvText = await response.text();
         const rows = csvText.split("\n").map(row => row.split(","));
 
@@ -89,8 +103,8 @@
           const row = rows[i];
           if (row.length !== headers.length) continue; // Skip invalid rows
 
-          const date = row[0]; // Assuming the first column is the date
-          const docName = `${player_name}_${date}`;
+          const date = row[3]; // Assuming the first column is the date
+          const docName = `Freddie_Freeman_${date}`;
           const data = {};
 
           headers.forEach((header, index) => {
@@ -98,6 +112,7 @@
           });
 
           try {
+            console.log(data);  // Make sure there are no keys like ""
             await setDoc(doc(db, "gameStats", docName), data);
             console.log(`Document ${docName} added successfully.`);
           } catch (error) {
@@ -127,24 +142,24 @@
     }
 
     displayData();
-    // <!-- async function getPrediction() {
-    //   const response = await fetch("http://localhost:5000/predict", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ request: "predictStats" }), // placeholder
-    //   });
+    async function getPrediction() {
+      const response = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ request: "predictStats" }), // placeholder
+      });
 
-    //   const data = await response.json();
-    //   const resultDiv = document.getElementById("result");
+      const data = await response.json();
+      const resultDiv = document.getElementById("result");
 
-    //   if (data) {
-    //     resultDiv.innerHTML = "<strong>Predicted Stats:</strong><br>";
-    //     for (const [stat, value] of Object.entries(data)) {
-    //       resultDiv.innerHTML += `${stat}: ${value}<br>`;
-    //     }
-    //   } else {
-    //     resultDiv.textContent = "Error: Could not fetch predictions.";
-    //   }
-    // } 
+      if (data) {
+        resultDiv.innerHTML = "<strong>Predicted Stats:</strong><br>";
+        for (const [stat, value] of Object.entries(data)) {
+          resultDiv.innerHTML += `${stat}: ${value}<br>`;
+        }
+      } else {
+        resultDiv.textContent = "Error: Could not fetch predictions.";
+      }
+    } 
   </script>
 </html>

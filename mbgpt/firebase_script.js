@@ -16,7 +16,7 @@ const firebaseConfig = {
     measurementId: "G-Q25HCXCHC6"
 };
 
-// Initialize Firebase
+// // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
@@ -119,3 +119,28 @@ async function getStats() {
 }
 
 getStats();
+
+async function getOpponents() {
+    const dropdown = document.getElementById("opponentDropdown");
+
+    try {
+        const querySnapshot = await getDocs(collection(db, "teams"));
+        console.log("Data fetched:", querySnapshot.size, "documents found.");
+
+        querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const fullName = `${doc.id} (${data.city} ${data.name})`;
+
+        // Create option element
+        const option = document.createElement("option");
+        option.value = fullName;
+        option.textContent = fullName;
+
+        dropdown.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error fetching stat data:", error);
+    }
+}
+
+getOpponents();
