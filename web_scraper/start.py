@@ -15,11 +15,29 @@ def search_player(player_name, driver):
     search_url = f"https://www.baseball-reference.com/search/search.fcgi?search={player_name.replace(' ', '+')}"
     driver.get(search_url)
 
-    time.sleep(5)  # Wait for page to load
+    time.sleep(1)  # Wait for page to load
 
     # Just return the current URL after search
     if (driver.current_url != search_url):
         return driver.current_url
+    
+    # Try to find a link that matches the player's Baseball-Reference ID pattern
+    # (first 2 letters of first name + first 4 letters of last name, case-insensitive)
+    parts = player_name.strip().split()
+    if len(parts) >= 2:
+        first, last = parts[0], parts[1]
+        chars = (last[:5] + first[:2]).lower()
+        # Find all <a> tags and check their hrefs
+        links = driver.find_elements(By.TAG_NAME, "a")
+        pattern = re.compile(r"/players/[a-z]/([a-z]{5}[a-z]{2}\d{2})\.shtml", re.IGNORECASE)
+        for link in links:
+            href = link.get_attribute("href")
+            if href:
+                match = pattern.search(href)
+                if match:
+                    player_id = match.group(1)
+                    if all(c in player_id for c in chars):
+                        return href
     
     # If no player found, return None
     print(f"No player found for {player_name}")
@@ -50,7 +68,7 @@ def table_to_csv(soup, filename):
 
 def scrape_player_page_and_years(player_url, driver, player_name):
     driver.get(player_url)
-    time.sleep(5)
+    time.sleep(1)  # Reduced from 5 to 1
     soup = BeautifulSoup(driver.page_source, "html.parser")
     combined_text = []
 
@@ -59,8 +77,7 @@ def scrape_player_page_and_years(player_url, driver, player_name):
     combined_text.append(f"==== Main Player Page ====\n{main_text}\n")
 
     # Find all year/game log links like /players/gl.fcgi?id= and contain '&t=b&year='
-    # remove 2025 when wanting to scrape all years
-    year_links = soup.select("a[href^='/players/gl.fcgi?id='][href*='&t=b&year=2025']")
+    year_links = soup.select("a[href^='/players/gl.fcgi?id='][href*='&t=b&year=']")
     print("Year links found:", [a.get("href") for a in year_links])
     visited = set()
     for a in year_links:
@@ -69,18 +86,38 @@ def scrape_player_page_and_years(player_url, driver, player_name):
             visited.add(href)
             full_url = "https://www.baseball-reference.com" + href
             driver.get(full_url)
-            time.sleep(5)  # Wait for page to load
+            time.sleep(1)  # Reduced from 5 to 1.5
 
             try:
-                wait = WebDriverWait(driver, 10)
-                # 1. Click the "Share & Export" menu to reveal the dropdown
+                # Try to close any pop-ups if present
+                close_btn_selectors = [
+                    "//div[contains(@class, 'closer')]"
+                ]
+                for selector in close_btn_selectors:
+                    try:
+                        close_btn = WebDriverWait(driver, 1).until(
+                            EC.element_to_be_clickable((By.XPATH, selector))
+                        )
+                        close_btn.click()
+                        time.sleep(0.5)
+                        print("Closed a pop-up window.")
+                        break
+                    except Exception:
+                        continue
+                wait = WebDriverWait(driver, 1)  # Reduced from 10 to 5
+                # 1. Wait for the "Share & Export" menu to be visible
                 share_export_menu = wait.until(
                     EC.visibility_of_element_located(
                         (By.XPATH, "//span[text()='Share & Export']")
                     )
                 )
+                driver.execute_script(
+                    "arguments[0].scrollIntoView({block: 'center', inline: 'center'});", share_export_menu
+                )
+                time.sleep(0.5)  # Reduced from 1 to 0.5
+
                 share_export_menu.click()
-                time.sleep(1)  # Give time for the dropdown to appear
+                time.sleep(0.5)  # Reduced from 1 to 0.5
 
                 # 2. Now look for the CSV button in the revealed dropdown
                 csv_button = wait.until(
@@ -88,22 +125,19 @@ def scrape_player_page_and_years(player_url, driver, player_name):
                         (By.XPATH, "//button[@class='tooltip' and contains(@tip, 'comma-separated values')]")
                     )
                 )
-                # Scroll the CSV button into view
-                driver.execute_script("arguments[0].scrollIntoView(true);", csv_button)
-                time.sleep(1)  # Add a delay to allow scrolling to finish
+                driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'center'});", csv_button)
+                time.sleep(0.5)  # Reduced from 1 to 0.5
 
-                # Scroll up to avoid sticky headers
-                driver.execute_script("window.scrollBy(0, -600);")  # Adjust as needed
-                time.sleep(1)  # Add a delay to allow the page to settle
+                driver.execute_script("window.scrollBy(0, -600);")
+                time.sleep(0.5)  # Reduced from 1 to 0.5
 
-                # Now try clicking the button
                 try:
                     csv_button.click()
                 except Exception:
                     driver.execute_script("arguments[0].click();", csv_button)
-                time.sleep(2)  # Optional: allow time for any download or UI update
+                time.sleep(0.5)  # Reduced from 2 to 0.5
                 print(f"Clicked CSV button for {a.text.strip()}")
-                time.sleep(2)
+                time.sleep(0.5)  # Reduced from 2 to 0.5
             except Exception as e:
                 print(f"No CSV button found or could not click for {a.text.strip()}: {e}")
                 driver.save_screenshot("debug_click_error.png")
@@ -111,7 +145,9 @@ def scrape_player_page_and_years(player_url, driver, player_name):
             # Parse the table and save as CSV
             year_soup = BeautifulSoup(driver.page_source, "html.parser")
             label = a.text.strip().replace(" ", "_")
-            csv_filename = f"{player_name.replace(' ', '_')}_{label}.csv"
+            # Ensure the scraped_files directory exists
+            os.makedirs("scraped_files", exist_ok=True)
+            csv_filename = os.path.join("scraped_files", f"{player_name.replace(' ', '_')}_{label}.csv")
             table_to_csv(year_soup, csv_filename)
 
     # Combine all text into a single string
@@ -129,15 +165,6 @@ def main():
         driver.quit()
         return
 
-    # # Ask user to confirm the found player page
-    # print(f"Found player page: {player_url}")
-    # confirm = input("Is this the correct player? (y/n): ").strip().lower()
-    # if confirm != "y":
-    #     print("Aborting. Please try searching with a different name.")
-    #     driver.quit()
-    #     return
-
-    print("Scraping data and year links...")
     scrape_player_page_and_years(player_url, driver, player_name)
     driver.quit()
 
