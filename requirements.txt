@@ -1,7 +1,9 @@
-numpy
-pandas
-xgboost
-typing
 fastapi
-scikit-learn
 uvicorn
+pandas
+numpy
+xgboost
+scikit-learn
+firebase-admin
+python-dotenv
+joblib

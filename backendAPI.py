@@ -1,111 +1,257 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
-from typing import List, Optional
+from pydantic import BaseModel
+import pandas as pd
+import numpy as np
+import os
+import joblib
+from typing import Dict, List, Any
+import logging
 
-# Import the helper functions and potentially the global model variable from useAnImportedModel
-# Import _model to check if it's loaded
-from useAnImportedModel import load_xgb_model, predict_with_loaded_model, get_expected_features_count, _model
-
-MODEL_PATH = "predict_BA.json"
-
-# Init fast api
-app = FastAPI(
-    title="Baseball prediction endpoint",
-    description="A baseball predicting model endpoint"
+# Import your utility functions
+from .model_utils import (
+    fetch_and_clean_player_data,
+    prepare_features_and_targets,
+    add_user_input_opponent,
+    get_opponent_specific_lagged_features,  # Use this for prediction input
+    train_model,
+    save_multioutput_model,
+    load_multioutput_model
 )
 
-# --- Define Pydantic Models ---
-# 1. Input model: What the client sends to your API
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+app = FastAPI(
+    title="Baseball Player Stat Predictor",
+    description="API for predicting player statistics using an XGBoost model.",
+    version="1.0.0"
+)
+
+# --- Global variables for the model and feature columns ---
+# We'll load the model and feature columns once when the app starts
+# Store models per player/stat combination if needed
+model_storage: Dict[str, Any] = {}
+# To store the exact feature columns used during training
+all_feature_columns: List[str] = []
+# Default stat, can be overridden by training if multiple
+selected_stat_global: str = "TB"
+# or if you adapt the API to predict multiple stats
 
 
-class PredictionInput(BaseModel):
-    # This list will hold the features your model expects
-    # You might want to define specific named fields if your model has clear, named features
-    features: List[float] = Field(
-        ...,  # Indicates this field is required
-        description="A list of numerical features for the baseball prediction model."
-    )
+# --- Pydantic models for request and response ---
 
-    class Config:
-        json_schema_extra = {
-            "example": {
-                # Adjust example features based on your model
-                "names": [],
-                "features": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-            }
-        }
-
-# 2. Output model: What your API sends back to the client
+class PredictionRequest(BaseModel):
+    player_name: str
+    selected_stat: str  # e.g., "TB", "H", "HR"
+    opponent: str      # e.g., "SEA", "NYY"
 
 
-class PredictionOutput(BaseModel):
-    prediction: float
+class PredictionResponse(BaseModel):
+    player_name: str
+    selected_stat: str
+    opponent: str
+    predicted_value: float
     message: str = "Prediction successful"
-    # Optional, if your model outputs confidence
-    confidence: Optional[float] = None
-
-    class Config:
-        json_schema_extra = {
-            "example": {
-                "prediction": 0.75,
-                "message": "Prediction successful"
-            }
-        }
-
-# --- Load the model when the application starts ---
-# This is crucial for performance. The model is loaded only once.
+    # For debugging, can be removed in production
+    debug_info: Dict[str, Any] = {}
 
 
+# --- FastAPI Lifespan Events (for model loading/training) ---
 @app.on_event("startup")
 async def startup_event():
-    """Load the ML model when the FastAPI application starts."""
-    try:
-        load_xgb_model(MODEL_PATH)
-        expected_count = get_expected_features_count()
-        if _model:
-            print(f"ML model '{MODEL_PATH}' loaded successfully.")
-            if expected_count is not None:
-                print(f"Model expects {expected_count} features.")
-            else:
-                print("Could not determine expected number of features from the model.")
-        else:
-            raise RuntimeError("Model loading failed, _model is still None.")
-    except Exception as e:
-        print(f"FATAL ERROR: Could not load the ML model at startup: {e}")
-        # In a production environment, you might want to stop the server here
-        # or have a health check that fails. For development, just log.
+    logger.info("Application startup: Initializing model...")
+    # This is where you would typically load your *pre-trained* model.
+    # For this example, we'll also run the full training process for demonstration.
+    # In a real production environment, you'd train offline and only load here.
+
+    global all_feature_columns
+    global selected_stat_global
+
+    player_name_for_training = "Jose_Altuve"
+    selected_stat_global = "TB"  # Or any other default stat you want to train on startup
+    # Just for training context, not used for actual prediction logic here
+    opponent_for_training = "SEA"
+
+    model_path = f"models/{player_name_for_training}_{
+        selected_stat_global}_model.joblib"
+
+    if os.path.exists(model_path):
+        try:
+            # Load the pre-trained model
+            loaded_model = load_multioutput_model(model_path)
+            model_storage[f"{player_name_for_training}_{
+                selected_stat_global}"] = loaded_model
+
+            # Need to also load/store the feature columns that this model was trained on
+            # This is crucial for consistent prediction input
+            # In a production setup, you'd save these feature names alongside the model.
+            # For now, let's re-run the data prep to get them, or manually define them if fixed.
+            # A better way: save a list of feature columns with your model.
+
+            # Temporary: re-run data prep to get feature columns
+            df_temp = fetch_and_clean_player_data(
+                player_name_for_training, selected_stat_global)
+            features_temp, _, _ = prepare_features_and_targets(
+                df_temp, selected_stat_global)
+            all_feature_columns = features_temp.columns.tolist()
+
+            logger.info(f"Loaded existing model for {
+                        player_name_for_training} ({selected_stat_global}).")
+
+        except Exception as e:
+            logger.error(f"Error loading existing model: {
+                         e}. Retraining instead.")
+            # Fallback to training if loading fails
+            df = fetch_and_clean_player_data(
+                player_name_for_training, selected_stat_global)
+            features, targets, _ = prepare_features_and_targets(
+                df, selected_stat_global)
+
+            # Ensure features for opponent-specific lags are added *before* training if needed
+            # For the training process, `add_opponent_lagged_stats` needs to be used to enrich `features`
+            # The current `add_opponent_lagged_stats` in model_utils.py doesn't modify features for training well.
+            # If you want opponent-specific lagged features to be *trained on*, you need to add them to `features` DataFrame.
+            # Example: features = add_opponent_lagged_stats(df.copy(), selected_stat_global, opponent_for_training)
+            # This is complex because each row in the training data has a *different* opponent.
+            # You would need to apply `get_opponent_specific_lagged_features` for *each historical game* based on its opponent.
+
+            trained_model, _ = train_model(features, targets)
+            save_multioutput_model(trained_model, model_path)
+            model_storage[f"{player_name_for_training}_{
+                selected_stat_global}"] = trained_model
+            all_feature_columns = features.columns.tolist()
+            logger.info(f"Trained and saved new model for {
+                        player_name_for_training} ({selected_stat_global}).")
+
+    else:
+        logger.info(f"No existing model found for {player_name_for_training} ({
+                    selected_stat_global}). Training a new one...")
+        try:
+            df = fetch_and_clean_player_data(
+                player_name_for_training, selected_stat_global)
+            features, targets, _ = prepare_features_and_targets(
+                df, selected_stat_global)
+            # As noted above, if you want opponent-specific lagged features *trained into the model*,
+            # you need to incorporate them into the `features` DataFrame during this training step.
+            # This would likely involve a loop over the historical data to calculate `get_opponent_specific_lagged_features`
+            # for each historical game based on its opponent and then adding those columns.
+            # For simplicity, if `Opp_SEA` etc. from `pd.get_dummies` is sufficient, then no change needed here.
+
+            trained_model, _ = train_model(features, targets)
+            save_multioutput_model(trained_model, model_path)
+            model_storage[f"{player_name_for_training}_{
+                selected_stat_global}"] = trained_model
+            all_feature_columns = features.columns.tolist()
+            logger.info(f"Trained and saved new model for {
+                        player_name_for_training} ({selected_stat_global}).")
+        except Exception as e:
+            logger.error(f"Failed to train model at startup: {e}")
+            raise RuntimeError(f"Failed to initialize model at startup: {e}")
 
 
-# --- Root endpoint (optional, for health check or info) ---
 @app.get("/")
-async def read_root():
-    return {"message": "Welcome to the Baseball Prediction API! Use /predict to get predictions."}
+async def root():
+    return {"message": "Baseball Player Stat Prediction API is running!"}
 
 
-# --- Prediction Endpoint ---
-@app.post("/predict", response_model=PredictionOutput)  # Corrected syntax
-# input_data will be an instance of PredictionInput
-async def predict(input_data: PredictionInput):
-    if _model is None:
-        raise HTTPException(
-            status_code=503, detail="Prediction model is not loaded. Please check server logs.")
+@app.post("/predict", response_model=PredictionResponse)
+async def predict_stat(request: PredictionRequest):
+    player_name = request.player_name
+    selected_stat = request.selected_stat
+    opponent = request.opponent
 
-    expected_features_count = get_expected_features_count()
-    if expected_features_count is not None and len(input_data.features) != expected_features_count:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Invalid number of features. Expected {
-                expected_features_count}, but received {len(input_data.features)}."
+    # Check if the model for this player/stat is loaded
+    model_key = f"{player_name}_{selected_stat}"
+    if model_key not in model_storage:
+        raise HTTPException(status_code=404, detail=f"Model for {player_name} and {
+                            selected_stat} not found. Please ensure it's trained and loaded.")
+
+    model = model_storage[model_key]
+
+    try:
+        # 1. Fetch player's historical data
+        # Note: This fetches *all* data for the player. We need the raw 'df' for opponent-specific lags.
+        historical_df = fetch_and_clean_player_data(player_name, selected_stat)
+
+        # 2. Prepare features for the *new* prediction input
+        # We need to simulate a new game, so we use the structure of the last historical game.
+        # However, we remove the actual 'selected_stat' value as it's what we want to predict.
+
+        # Take the last row of the cleaned historical_df as a base for prediction input
+        # It already has `_lag1`, `_lag3`, `_rolling3` features computed from historical data.
+
+        # Prepare features (one-hot encoding etc.) for all historical data
+        # This gives us the complete set of feature columns that the model expects
+        features_for_prep, _, _ = prepare_features_and_targets(
+            historical_df, selected_stat)
+
+        # Get the latest game's features as a template for the prediction
+        latest_game_features_template = features_for_prep.iloc[[-1]].copy()
+
+        # Add user-specified opponent to the prediction input
+        # This function modifies the opponent columns for the *single prediction row*
+        prediction_input_df = add_user_input_opponent(
+            latest_game_features_template, opponent)
+
+        # Add opponent-specific lagged features to the prediction input
+        # We need to calculate these based on the `historical_df`
+        opponent_lag_feats = get_opponent_specific_lagged_features(
+            historical_df, selected_stat, opponent)
+        for col, val in opponent_lag_feats.items():
+            # Add these new columns to the prediction_input_df
+            prediction_input_df[col] = val
+
+        # Ensure prediction_input_df has all and only the columns that the model was trained on, in the correct order.
+        # This is critical! If feature columns mismatch, prediction will fail or be inaccurate.
+        # First, ensure all_feature_columns is populated.
+        if not all_feature_columns:
+            # Fallback if startup didn't populate it (e.g., if you skipped training/loading)
+            # This should ideally be populated during startup and model loading
+            df_temp = fetch_and_clean_player_data(player_name, selected_stat)
+            features_temp, _, _ = prepare_features_and_targets(
+                df_temp, selected_stat)
+            all_feature_columns = features_temp.columns.tolist()
+
+        # Align columns of the input with the training columns
+        missing_cols = set(all_feature_columns) - \
+            set(prediction_input_df.columns)
+        for c in missing_cols:
+            prediction_input_df[c] = 0.0  # Or appropriate default value
+
+        extra_cols = set(prediction_input_df.columns) - \
+            set(all_feature_columns)
+        prediction_input_df = prediction_input_df.drop(
+            columns=list(extra_cols))
+
+        prediction_input_df = prediction_input_df[all_feature_columns]
+
+        logger.info(f"Prediction input shape: {prediction_input_df.shape}")
+        # logger.info(f"Prediction input sample:\n{prediction_input_df.head().T}") # Too verbose for production logs
+
+        # 3. Make prediction
+        prediction_array = model.predict(prediction_input_df)[0]
+        # Assuming MultiOutputRegressor always returns an array of predictions
+        predicted_value = prediction_array[0]
+
+        return PredictionResponse(
+            player_name=player_name,
+            selected_stat=selected_stat,
+            opponent=opponent,
+            predicted_value=round(float(predicted_value), 3),
+            debug_info={
+                "input_features_count": len(prediction_input_df.columns),
+                "model_feature_count": len(all_feature_columns),
+                # "input_features_sample": prediction_input_df.iloc[0].to_dict() # Only for deep debugging
+            }
         )
 
-    try:
-        # Call the helper function with the features from the request
-        prediction_result = predict_with_loaded_model(input_data.features)
-        return PredictionOutput(prediction=prediction_result)
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=f"Input data error: {e}")
-    except RuntimeError as e:
-        raise HTTPException(status_code=500, detail=f"Prediction error: {e}")
-    except Exception as e:
+    except ValueError as ve:
+        raise HTTPException(status_code=400, detail=str(ve))
+    except ConnectionError as ce:
         raise HTTPException(
-            status_code=500, detail=f"An unexpected error occurred during prediction: {e}")
+            status_code=500, detail=f"Firebase connection error: {str(ce)}")
+    except Exception as e:
+        logger.exception("An error occurred during prediction:")
+        raise HTTPException(
+            status_code=500, detail=f"Internal server error: {e}")
