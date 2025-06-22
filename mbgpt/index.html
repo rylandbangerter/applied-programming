@@ -59,11 +59,7 @@
         width="300"
         height="200"
       />
-      <div id="predictionResults">
-        <p>Shohei Ohtani</p>
-        <p>MVP</p>
-        <p>3</p>
-      </div>
+      <div id="predictionResults"></div>
     </div>
   </body>
   <script type= "module">
@@ -143,23 +139,42 @@
 
     displayData();
     async function getPrediction() {
-      const response = await fetch("http://localhost:5000/predict", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ request: "predictStats" }), // placeholder
+      const stat = document.getElementById("statsDropdown").value;
+      const player = document.getElementById("playerDropdown").value;
+      const opponent = document.getElementById("opponentDropdown").value;
+      const resultDiv = document.getElementById("predictionResults");
+      const formattedPlayer = player.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      resultDiv.innerHTML = `<strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong><br>`;
+
+      if ([stat, player, opponent].includes("choose")) {
+        resultDiv.textContent = "Please select all fields before predicting.";
+        return;
+      }
+
+      try {
+        const response = await fetch("https://predictionbackend-m35t.onrender.com/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ stat, player, opponent }),
       });
 
       const data = await response.json();
-      const resultDiv = document.getElementById("result");
 
-      if (data) {
-        resultDiv.innerHTML = "<strong>Predicted Stats:</strong><br>";
-        for (const [stat, value] of Object.entries(data)) {
-          resultDiv.innerHTML += `${stat}: ${value}<br>`;
-        }
-      } else {
-        resultDiv.textContent = "Error: Could not fetch predictions.";
+      if (data.error) {
+        resultDiv.textContent = `Server error: ${data.error}`;
+        return;
       }
-    } 
+
+      const formattedPlayer = player.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      resultDiv.innerHTML = `<strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong><br>`;
+      for (const [key, value] of Object.entries(data)) {
+        resultDiv.innerHTML += `${key}: ${value}<br>`;
+      }
+    } catch (err) {
+      resultDiv.textContent = "Prediction failed. Check console.";
+      console.error("Fetch error:", err);
+    }
+  }
+  window.getPrediction = getPrediction;
   </script>
 </html>
