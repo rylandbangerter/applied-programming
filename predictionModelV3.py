@@ -283,7 +283,7 @@ if __name__ == "__main__":
     selected_stat_features = features.columns
     important_selected_stat = pd.Series(importances, index=selected_stat_features).sort_values(ascending=False)
 
-    print("\nTop Features for TB Prediction:\n", important_selected_stat.head(10))
+    print(f"\nTop Features for {selected_stat} Prediction:\n", important_selected_stat.head(10))
     
     print(f"\nAverage {selected_stat} in training data:", df[selected_stat].mean())
     print(f"{selected_stat} distribution:\n", df[selected_stat].value_counts().sort_index())
