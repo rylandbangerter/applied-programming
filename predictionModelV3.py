@@ -224,13 +224,39 @@ def predict_next_game(model, features, target_stats):
     print(f"{'Stat':<8} {'Prediction':>10}")
     print('-' * 20)
     for stat, val in zip(target_stats, prediction):
-        print(f"{stat:<8} {val:>10.3f}")
+        print(f"{stat:<8} {val:>10.4f}")
+
+# === Pulls data from HTML ===
+def get_prediction(player_name, selected_stat, opponent):
+    from dotenv import load_dotenv
+    import os
+    import firebase_admin
+    from firebase_admin import credentials
+
+    load_dotenv()
+    key_path = os.environ.get("FIREBASE_KEY_PATH")
+
+    if not key_path:
+        raise ValueError("FIREBASE_KEY_PATH environment variable is not set.")
+
+    if not firebase_admin._apps:
+        cred = credentials.Certificate(key_path)
+        firebase_admin.initialize_app(cred)
+
+    df = fetch_and_clean_player_data(player_name, selected_stat)
+    features, targets, target_stats = prepare_features_and_targets(df, selected_stat)
+    features = add_user_input_opponent(features, opponent)
+    model, _ = train_model(features, targets)
+    prediction = model.predict(features.iloc[[-1]])[0]
+
+    return target_stats, prediction
 
 # ===  Main Execution ===
 if __name__ == "__main__":
-    player_name = "Jose_Altuve"  # Replace this later with user input from HTML
-    selected_stat = "TB" # This will come from HTML input
-    opponent = "SEA"
+    player_name = "freddie_freeman"  # Replace this later with user input from HTML
+    selected_stat = "RBI" # This will come from HTML input
+    opponent = "DET"
+    
     df = fetch_and_clean_player_data(player_name, selected_stat)
     #This Print Statement is for checking if all the values are being found
     #print("Jose Altuve data sample:\n", df.head(1).T)
@@ -252,20 +278,20 @@ if __name__ == "__main__":
     #print(f"\nTraining MSE: {mean_squared_error(targets, train_preds):.2f}")
     #print(f"Training R2: {r2_score(targets, train_preds):.2f}")
     
-    tb_model = model.estimators_[target_stats.index('TB')]
-    importances = tb_model.feature_importances_
-    tb_features = features.columns
-    important_tb = pd.Series(importances, index=tb_features).sort_values(ascending=False)
+    selected_stat_model = model.estimators_[target_stats.index(selected_stat)]
+    importances = selected_stat_model.feature_importances_
+    selected_stat_features = features.columns
+    important_selected_stat = pd.Series(importances, index=selected_stat_features).sort_values(ascending=False)
 
-    print("\nTop Features for TB Prediction:\n", important_tb.head(10))
+    print("\nTop Features for TB Prediction:\n", important_selected_stat.head(10))
     
-    print("\nAverage TB in training data:", df["TB"].mean())
-    print("TB distribution:\n", df["TB"].value_counts().sort_index())
+    print(f"\nAverage {selected_stat} in training data:", df[selected_stat].mean())
+    print(f"{selected_stat} distribution:\n", df[selected_stat].value_counts().sort_index())
     
-    print("\nActual TB from last game:", df.iloc[-1]["TB"])
+    print(f"\nActual {selected_stat} from last game:", df.iloc[-1][selected_stat])
     
-    cols = [c for c in features.columns if 'TB' in c]
-    print("\nRecent TB-related features:\n", features[cols].tail())
+    cols = [c for c in features.columns if selected_stat in c]
+    print(f"\nRecent {selected_stat}-related features:\n", features[cols].tail())
     
 
 
