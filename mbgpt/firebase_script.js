@@ -82,9 +82,10 @@ async function getPlayer() {
         const fullName = `${data.first_name} ${data.last_name}`;
 
         // Create option element
+        const formattedValue = fullName.toLowerCase().replace(/\s+/g, "_");
         const option = document.createElement("option");
-        option.value = fullName;
-        option.textContent = fullName;
+        option.value = formattedValue;      // backend-friendly
+        option.textContent = fullName;      // user-friendly
 
         dropdown.appendChild(option);
         });
@@ -104,12 +105,12 @@ async function getStats() {
 
         querySnapshot.forEach((doc) => {
         const data = doc.data();
-        const fullName = `${doc.id} (${data.name})`;
+        const statId = doc.id;
+        const statName = data.name || statId;
 
-        // Create option element
         const option = document.createElement("option");
-        option.value = fullName;
-        option.textContent = fullName;
+        option.value = statId; // sends just "H", "HR", etc. to backend
+        option.textContent = `${statId} (${statName})`; // shows "H (Hits)" in dropdown
 
         dropdown.appendChild(option);
         });
@@ -129,12 +130,13 @@ async function getOpponents() {
 
         querySnapshot.forEach((doc) => {
         const data = doc.data();
-        const fullName = `${doc.id} (${data.city} ${data.name})`;
+        const teamId = doc.id;
+        const city = data.city || "";
+        const name = data.name || "";
 
-        // Create option element
         const option = document.createElement("option");
-        option.value = fullName;
-        option.textContent = fullName;
+        option.value = teamId; // sends just "DET", "LAD", etc. to backend
+        option.textContent = `${teamId} (${city} ${name})`.trim(); // shows "DET (Detroit Tigers)"
 
         dropdown.appendChild(option);
         });

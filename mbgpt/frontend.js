@@ -36,33 +36,48 @@ This JS code adds a button and calls the backend to get a prediction.
 
 
 // running a python file in HTML 
-  async function getPrediction() {
-        const number = document.getElementById("numberInput").value;
-        const response = await fetch("http://localhost:5000/predict", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ number }),
-        });
-        const data = await response.json();
-        document.getElementById("result").textContent =
-          "Prediction: " + data.prediction;
+
+async function getPrediction() {
+  const stat = document.getElementById("statsDropdown").value;
+  const player = document.getElementById("playerDropdown").value;
+  const opponent = document.getElementById("opponentDropdown").value;
+
+  const displayBox = document.getElementById("predictionResults");
+
+  // Clear out old prediction
+  displayBox.innerHTML = "";
+
+  if ([stat, player, opponent].includes("choose")) {
+    displayBox.textContent = "Please select all fields before predicting.";
+    return;
   }
-  async function getPrediction() {
-    const response = await fetch("http://localhost:5000/predict", {
+
+  try {
+    const response = await fetch("https://predictionbackend-m35t.onrender.com/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ request: "predictStats" }), // placeholder
+      body: JSON.stringify({ stat, player, opponent }),
     });
 
     const data = await response.json();
-    const resultDiv = document.getElementById("result");
 
-    if (data) {
-      resultDiv.innerHTML = "<strong>Predicted Stats:</strong><br>";
-      for (const [stat, value] of Object.entries(data)) {
-        resultDiv.innerHTML += `${stat}: ${value}<br>`;
-      }
-    } else {
-      resultDiv.textContent = "Error: Could not fetch predictions.";
+    if (data.error) {
+      displayBox.textContent = `Server error: ${data.error}`;
+      return;
     }
+
+    displayBox.innerHTML = `
+      <p><strong>Player:</strong> ${player}</p>
+      <p><strong>Stat:</strong> ${stat}</p>
+      <p><strong>Opponent:</strong> ${opponent}</p>
+      <p><strong>Prediction:</strong></p>
+    `;
+
+    for (const [key, value] of Object.entries(data)) {
+      displayBox.innerHTML += `<p>${key}: ${value}</p>`;
+    }
+  } catch (err) {
+    displayBox.textContent = "Prediction failed. Check console.";
+    console.error("Fetch error:", err);
   }
+}
