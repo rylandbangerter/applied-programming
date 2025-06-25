@@ -26,7 +26,12 @@ h1, h3, p, h2 {
 #parallax h1 {
     color: white;
     margin: 0 auto;
-    -webkit-text-stroke: 2px darkred;
+    -webkit-text-stroke: 3px darkred;
+    text-shadow: 5px 5px 5px black;
+    font-size: 4em;
+    /* background-color: darkred;
+    padding: 10px 20px;
+    border-radius: 25px; */
 }
 
 main {
@@ -95,11 +100,14 @@ button:hover {
     border-radius: 10px;
 }
 
-#moneyball {
+#results-title {
+    margin-top: 50px;
+}
+
+#page-image {
     display: block;
     margin: 0 auto;
-    width: 90%;
-    max-width: 600px;
+    max-height: 450px;
     height: auto;
     border-radius: 50px;
 }
@@ -124,7 +132,7 @@ button:hover {
 }
 
 #parallax {
-    background-image: url("moneyball-parallax.jpg");
+    background-image: url("baseball-parallax.jpg");
     font-size: 3em;
   
     min-height: 300px;
@@ -140,6 +148,18 @@ button:hover {
     background-size: cover;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: darkred;
+    color: white;
+    margin-top: 50px;
+    font-size: 1.2em;
+}
+
 @media screen and (min-width: 700px) {
     .selection {
         grid-template-columns: 1fr 6fr;
@@ -147,5 +167,9 @@ button:hover {
 
     #predictionResults {
         grid-template-columns: 1fr 1fr;
+    }
+
+    footer {
+        flex-direction: row;
     }
 }
