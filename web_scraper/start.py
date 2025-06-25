@@ -77,7 +77,19 @@ def scrape_player_page_and_years(player_url, driver, player_name):
     combined_text.append(f"==== Main Player Page ====\n{main_text}\n")
 
     # Find all year/game log links like /players/gl.fcgi?id= and contain '&t=b&year='
-    year_links = soup.select("a[href^='/players/gl.fcgi?id='][href*='&t=b&year=']")
+    # Only include links for years 2020-2029 and "post"
+    year_links = []
+    for a in soup.select("a[href^='/players/gl.fcgi?id='][href*='&t=b']"):
+        href = a.get("href", "")
+        # Match years 2020-2029 or "Post"
+        year_match = re.search(r"&year=(\d{4})", href)
+        post_match = re.search(r"&year=0&post=", href)
+        if year_match:
+            year_val = year_match.group(1)
+            if year_val.startswith("202"):
+                year_links.append(a)
+        elif post_match:
+            year_links.append(a)
     print("Year links found:", [a.get("href") for a in year_links])
     visited = set()
     for a in year_links:
@@ -146,18 +158,21 @@ def scrape_player_page_and_years(player_url, driver, player_name):
             year_soup = BeautifulSoup(driver.page_source, "html.parser")
             label = a.text.strip().replace(" ", "_")
             # Ensure the scraped_files directory exists
-            os.makedirs("scraped_files", exist_ok=True)
-            csv_filename = os.path.join("scraped_files", f"{player_name.replace(' ', '_')}_{label}.csv")
+            os.makedirs("mbgpt", exist_ok=True)
+            csv_filename = os.path.join("mbgpt", f"{player_name.replace(' ', '_')}_{label}.csv")
             table_to_csv(year_soup, csv_filename)
 
     # Combine all text into a single string
     return "\n".join(combined_text)
+def normalize_player_name(name):
+        return name.lower().strip()
 
 def main():
     service = Service("C:/WebDriver/chromedriver.exe")
     driver = webdriver.Chrome(service=service)
 
-    player_name = input("Enter the player's name: ").strip()
+    player_name = input("Enter the player's name: ")
+    player_name = normalize_player_name(player_name)
     print(f"Searching for {player_name}...")
     player_url = search_player(player_name, driver)
     if not player_url:
