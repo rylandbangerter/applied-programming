@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "firebase-admin": "^13.4.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "name": "applied-programming",
+  "version": "1.0.0",
+  "description": "**Project Title**: MBGPT",
+  "main": "uploadStatsToFirestore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rylandbangerter/applied-programming.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rylandbangerter/applied-programming/issues"
+  },
+  "homepage": "https://github.com/rylandbangerter/applied-programming#readme"
+}
