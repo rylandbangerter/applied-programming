@@ -26,7 +26,7 @@ function parseCSVWithHeaderFix(csvText, placeholder = "@/H") {
     return rowObj;
   });
 
-  return rows;
+return rows.slice(0, -1);
 }
 
 async function uploadCSVFile(filePath, fileName) {
