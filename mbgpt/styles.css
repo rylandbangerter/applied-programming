@@ -28,10 +28,7 @@ h1, h3, p, h2 {
     margin: 0 auto;
     -webkit-text-stroke: 3px darkred;
     text-shadow: 5px 5px 5px black;
-    font-size: 4em;
-    /* background-color: darkred;
-    padding: 10px 20px;
-    border-radius: 25px; */
+    font-size: 25vw;
 }
 
 main {
@@ -161,6 +158,10 @@ footer {
 }
 
 @media screen and (min-width: 700px) {
+    #parallax h1 {
+        font-size: 4em;
+    }
+    
     .selection {
         grid-template-columns: 1fr 6fr;
     }
