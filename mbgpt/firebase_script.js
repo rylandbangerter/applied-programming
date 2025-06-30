@@ -21,55 +21,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-// async function uploadGameStats() {
-//   const response = await fetch("Shohei_Ohtani_Last_Season.csv");
-//   const csvText = await response.text();
-//   const rows = csvText.split("\n").map(row => row.split(","));
-    
-//   const headers = rows[0]; // First row as field names
-//   for (let i = 1; i < rows.length; i++) {
-//     const row = rows[i];
-//     if (row.length !== headers.length) continue; // Skip invalid rows
-
-//     const date = row[0]; // Assuming the first column is the date
-//     const docName = `Shohei_Ohtani_${date}`;
-//     const data = {};
-
-//     headers.forEach((header, index) => {
-//       data[header] = row[index];
-//     });
-
-//     try {
-//       await setDoc(doc(db, "gameStats", docName), data);
-//       console.log(`Document ${docName} added successfully.`);
-//     } catch (error) {
-//       console.error(`Error adding document ${docName}:`, error);
-//     }
-//   }
-// }
-
-// uploadGameStats();
-
-// async function displayData() {
-//     // Fetch data from Firestore
-//     const outputDiv = document.getElementById("output-data");
-//     try {
-//     const querySnapshot = await getDocs(collection(db, "playerData"));
-//     console.log("Data fetched:", querySnapshot.size, "documents found.");
-//     querySnapshot.forEach((doc) => {
-//         const data = doc.data();
-//         console.log("Document data:", data);
-//         const dataElement = document.createElement("p");
-//         dataElement.textContent = JSON.stringify(data);
-//         outputDiv.appendChild(dataElement);
-//     });
-//     } catch (error) {
-//     console.error("Error fetching data:", error);
-//     }
-// }
-
-// displayData();
-
 async function getPlayer() {
     const dropdown = document.getElementById("playerDropdown");
 
@@ -147,4 +98,42 @@ async function getOpponents() {
 
 getOpponents();
 
+async function getPrediction() {
+const stat = document.getElementById("statsDropdown").value;
+const player = document.getElementById("playerDropdown").value;
+const opponent = document.getElementById("opponentDropdown").value;
+const resultDiv = document.getElementById("predictionResults");
 
+const formattedPlayer = player.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+resultDiv.innerHTML = `<strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong>`;
+
+if ([stat, player, opponent].includes("choose")) {
+    resultDiv.textContent = "Please select all fields before predicting.";
+    return;
+}
+
+try {
+    const response = await fetch("https://predictionbackend-m35t.onrender.com/predict", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ stat, player, opponent }),
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+    resultDiv.textContent = `Server error: ${data.error}`;
+    return;
+    }
+
+    resultDiv.innerHTML = `<p><strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong></p>`;
+    for (const [key, value] of Object.entries(data)) {
+    resultDiv.innerHTML += `<p>${key.trim()}: ${value}</p>`;
+    }
+} catch (err) {
+    resultDiv.textContent = "Prediction failed. Check console.";
+    console.error("Fetch error:", err);
+}
+}
+
+document.getElementById("predictButton").addEventListener("click", getPrediction);
