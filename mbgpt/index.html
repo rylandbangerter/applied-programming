@@ -68,7 +68,7 @@
         const resultDiv = document.getElementById("predictionResults");
 
         const formattedPlayer = player.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-        resultDiv.innerHTML = `<strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong><br>`;
+        resultDiv.innerHTML = `<strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong>`;
 
         if ([stat, player, opponent].includes("choose")) {
           resultDiv.textContent = "Please select all fields before predicting.";
@@ -89,9 +89,9 @@
             return;
           }
 
-          resultDiv.innerHTML = `<strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong><br>`;
+          resultDiv.innerHTML = `<p><strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong></p>`;
           for (const [key, value] of Object.entries(data)) {
-            resultDiv.innerHTML += `${key}: ${value}<br>`;
+            resultDiv.innerHTML += `<p>${key.trim()}: ${value}</p>`;
           }
         } catch (err) {
           resultDiv.textContent = "Prediction failed. Check console.";
