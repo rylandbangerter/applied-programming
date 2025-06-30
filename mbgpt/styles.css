@@ -18,7 +18,7 @@ header {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-h1, h3, p, h2 {
+h1, p, h2 {
     text-align: center;
     margin-top: 0;
 }
@@ -150,11 +150,11 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
     background-color: darkred;
     color: white;
     margin-top: 50px;
-    font-size: 1.2em;
+    margin-bottom: 0;
 }
 
 @media screen and (min-width: 700px) {
