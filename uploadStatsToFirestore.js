@@ -88,7 +88,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   }
 });
 
-// 🔥 Route: predict stat
+// Route: predict stat
 app.post("/predict", (req, res) => {
   const { stat, player, opponent } = req.body;
 
@@ -109,11 +109,13 @@ app.post("/predict", (req, res) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is awake!");
+});
+
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-app.get("/", (req, res) => {
-  res.status(200).send("Backend is awake!");
-});
+
 
