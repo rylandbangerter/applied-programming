@@ -4,26 +4,21 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const admin = require("firebase-admin");
-
-// CORS 
 const cors = require("cors");
 
 const app = express();
 
-// Allow your specific Netlify frontend URL
+// Parse JSON request bodies
+app.use(express.json());
+
+// CORS: Allow your specific Netlify frontend URL
 app.use(cors({
   origin: "https://685c3bc628567b00087470c5--merry-gnome-9ee3d2.netlify.app",
   methods: ["GET", "POST"],
   credentials: true
 }));
 
-// Your routes
-app.post("/predict", (req, res) => {
-  // handle prediction
-});
-
-
-// Load service account key from environment variable
+// Initialize Firebase Admin SDK
 const serviceAccount = JSON.parse(process.env.serviceAccountKey);
 
 admin.initializeApp({
@@ -32,8 +27,10 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
+// File upload config
 const upload = multer({ dest: "scraped_files/" });
 
+// CSV parsing function
 function parseCSVWithHeaderFix(csvText, placeholder = "@/H") {
   const lines = csvText.trim().split("\n");
   let headers = lines[0].split(",").map((h, i) => h.trim() || `${placeholder}_${i}`);
@@ -46,9 +43,11 @@ function parseCSVWithHeaderFix(csvText, placeholder = "@/H") {
     });
     return rowObj;
   });
-  return rows.slice(0, -1);
+
+  return rows.slice(0, -1); // remove last row if empty
 }
 
+// Upload CSV and store data in Firestore
 async function uploadCSVFile(filePath, fileName) {
   const csvText = fs.readFileSync(filePath, "utf8");
   const dataRows = parseCSVWithHeaderFix(csvText);
@@ -66,7 +65,7 @@ async function uploadCSVFile(filePath, fileName) {
       console.log(`Skipped (exists): ${docName}`);
     }
 
-    // Optional: Update playerData collection
+    // Update playerData collection
     if (row["Player"]) {
       const [firstName, ...rest] = row["Player"].split(" ");
       const lastName = rest.join(" ");
@@ -79,6 +78,7 @@ async function uploadCSVFile(filePath, fileName) {
   }
 }
 
+// Upload route for CSV files
 app.post("/upload", upload.single("file"), async (req, res) => {
   const file = req.file;
   if (!file) return res.status(400).send("No file uploaded");
@@ -93,5 +93,17 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   }
 });
 
+// 🔥 Predict route (placeholder logic)
+app.post("/predict", (req, res) => {
+  console.log("Received /predict request with body:", req.body);
+
+  // Simulate prediction result for now
+  const input = req.body.input || "No input";
+  const prediction = `Predicted result for "${input}"`;
+
+  res.status(200).json({ prediction });
+});
+
+// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
