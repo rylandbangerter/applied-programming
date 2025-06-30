@@ -126,3 +126,15 @@ document.getElementById("predictButton").addEventListener("click", getPrediction
 getPlayer();
 getStats();
 getOpponents();
+
+// Wake up the backend when the page loads
+async function wakeBackend() {
+  try {
+    await fetch("https://predictionbackend-m35t.onrender.com/");
+    console.log("Backend wake-up ping sent");
+  } catch (err) {
+    console.error("Backend wake-up failed", err);
+  }
+}
+
+wakeBackend(); // Call immediately on page load
