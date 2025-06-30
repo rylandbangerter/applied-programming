@@ -43,64 +43,6 @@
       <h2 id="results-title">Prediction Results</h2>
       <div id="predictionResults"></div>
     </div>
-
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-      import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyCL_Po7HXEyKAKDsLvoSCNy-Bb9NPmFxCo",
-        authDomain: "moneyball-a1cab.firebaseapp.com",
-        projectId: "moneyball-a1cab",
-        storageBucket: "moneyball-a1cab.firebasestorage.app",
-        messagingSenderId: "1002557739869",
-        appId: "1:1002557739869:web:a035e6b37226a8e7560eb4",
-        measurementId: "G-Q25HCXCHC6",
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-
-      async function getPrediction() {
-        const stat = document.getElementById("statsDropdown").value;
-        const player = document.getElementById("playerDropdown").value;
-        const opponent = document.getElementById("opponentDropdown").value;
-        const resultDiv = document.getElementById("predictionResults");
-
-        const formattedPlayer = player.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-        resultDiv.innerHTML = `<strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong><br>`;
-
-        if ([stat, player, opponent].includes("choose")) {
-          resultDiv.textContent = "Please select all fields before predicting.";
-          return;
-        }
-
-        try {
-          const response = await fetch("https://predictionbackend-m35t.onrender.com/predict", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ stat, player, opponent }),
-          });
-
-          const data = await response.json();
-
-          if (data.error) {
-            resultDiv.textContent = `Server error: ${data.error}`;
-            return;
-          }
-
-          resultDiv.innerHTML = `<strong>${formattedPlayer} — ${stat} Prediction vs ${opponent}:</strong><br>`;
-          for (const [key, value] of Object.entries(data)) {
-            resultDiv.innerHTML += `${key}: ${value}<br>`;
-          }
-        } catch (err) {
-          resultDiv.textContent = "Prediction failed. Check console.";
-          console.error("Fetch error:", err);
-        }
-      }
-
-      document.getElementById("predictButton").addEventListener("click", getPrediction);
-    </script>
   </body>
   <footer>
     <h4>MBGPT © 2025</h4>
