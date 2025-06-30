@@ -5,6 +5,24 @@ const path = require("path");
 const fs = require("fs");
 const admin = require("firebase-admin");
 
+// CORS 
+const cors = require("cors");
+
+const app = express();
+
+// Allow your specific Netlify frontend URL
+app.use(cors({
+  origin: "https://685c3bc628567b00087470c5--merry-gnome-9ee3d2.netlify.app",
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
+// Your routes
+app.post("/predict", (req, res) => {
+  // handle prediction
+});
+
+
 // Load service account key from environment variable
 const serviceAccount = JSON.parse(process.env.serviceAccountKey);
 
@@ -14,7 +32,6 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-const app = express();
 const upload = multer({ dest: "scraped_files/" });
 
 function parseCSVWithHeaderFix(csvText, placeholder = "@/H") {
