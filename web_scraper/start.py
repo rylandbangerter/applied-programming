@@ -1,3 +1,5 @@
+import firebase_admin
+from firebase_admin import credentials, firestore
 import csv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -9,6 +11,18 @@ import time
 from bs4 import BeautifulSoup
 import os
 import re
+
+def get_firebase_key_path():
+    firebase_key_path = os.environ.get("FIREBASE_KEY_PATH")
+    if not firebase_key_path:
+        raise ValueError("No Firebase key path found. Please set FIREBASE_KEY_PATH in your environment or .env file.")
+    return firebase_key_path
+
+def initialize_firebase():
+    firebase_key_path = get_firebase_key_path()
+    cred = credentials.Certificate(firebase_key_path)
+    firebase_admin.initialize_app(cred)
+    return firestore.client()
 
 def search_player(player_name, driver):
     # Build the search URL
@@ -177,9 +191,12 @@ def main():
     chrome_options.add_argument("--disable-dev-shm-usage")
 
     driver = webdriver.Chrome(service=service, options=chrome_options)
+    
+    
 
     player_name = input("Enter the player's name: ")
     player_name = normalize_player_name(player_name)
+    
     print(f"Searching for {player_name}...")
     player_url = search_player(player_name, driver)
     if not player_url:
