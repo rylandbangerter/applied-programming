@@ -2,35 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A website to predict baseball statistics">
+    <meta name="author" content="Brian Payne, Noah Merrell, Ryland Bangerter, Taylor Alvey, Troy Owens">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MBGPT</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta property="og:title" content="MBGPT">
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A website to predict baseball statistics">
+    <meta property="og:image" content="baseball-parallax.webp">
+    <meta property="og:url" content="https://rylandbangerter.github.io/applied-programming/mbgpt/">
+    <meta name="twitter:card" content="baseball-parallax.webp">
     <script defer src="firebase_script.js" type="module"></script>
   </head>
 
   <body>
     <div id="parallax"><h1>MBGPT</h1></div>
     <div class="main-page">
-      <h3>
+      <p>
         Welcome to our AI Stat Predictor. Select the stat that you would like to
         predict and the name of the player that you want to predict it for.
-      </h3>
+      </p>
 
       <div class="selection">
-        <label for="stats">Choose a stat:</label>
+        <label for="statsDropdown">Choose a stat:</label>
         <select id="statsDropdown" name="stats">
           <option value="choose">Select one</option>
         </select>
       </div>
       <div class="selection">
-        <label for="players">Choose a player:</label>
+        <label for="playerDropdown">Choose a player:</label>
         <select id="playerDropdown">
           <option value="choose">Select one</option>
         </select>
       </div>
       <div class="selection">
-        <label for="opponents">Choose an opponent:</label>
+        <label for="opponentDropdown">Choose an opponent:</label>
         <select id="opponentDropdown">
           <option value="choose">Select one</option>
         </select>
