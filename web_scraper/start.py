@@ -137,29 +137,27 @@ def scrape_player_page_and_years(player_url, driver, player_name):
                         (By.XPATH, "//button[@class='tooltip' and contains(@tip, 'comma-separated values')]")
                     )
                 )
-                driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'center'});", csv_button)
-                time.sleep(0.5)  # Reduced from 1 to 0.5
-
-                driver.execute_script("window.scrollBy(0, -600);")
-                time.sleep(0.5)  # Reduced from 1 to 0.5
-
-                try:
-                    csv_button.click()
-                except Exception:
-                    driver.execute_script("arguments[0].click();", csv_button)
-                time.sleep(0.5)  # Reduced from 2 to 0.5
+                driver.execute_script("arguments[0].scrollIntoView(true);", csv_button)
+                driver.execute_script("window.scrollBy(0, -100);")
+                time.sleep(0.5)
+                driver.execute_script("arguments[0].click();", csv_button)
+                time.sleep(0.5)
                 print(f"Clicked CSV button for {a.text.strip()}")
-                time.sleep(0.5)  # Reduced from 2 to 0.5
             except Exception as e:
                 print(f"No CSV button found or could not click for {a.text.strip()}: {e}")
                 driver.save_screenshot("debug_click_error.png")
+                continue  # Skip to next year
 
             # Parse the table and save as CSV
             year_soup = BeautifulSoup(driver.page_source, "html.parser")
+            pre_tag = year_soup.find("pre", id="csv_players_standard_batting")
+            if not pre_tag:
+                print(f"No <pre id='csv_players_standard_batting'> found for {csv_filename}")
+                continue  # Skip to next year
             label = a.text.strip().replace(" ", "_")
             # Ensure the scraped_files directory exists
-            os.makedirs("mbgpt", exist_ok=True)
-            csv_filename = os.path.join("mbgpt", f"{player_name.replace(' ', '_')}_{label}.csv")
+            os.makedirs("scraped_files", exist_ok=True)
+            csv_filename = os.path.join("scraped_files", f"{player_name.replace(' ', '_')}_{label}.csv")
             table_to_csv(year_soup, csv_filename)
 
     # Combine all text into a single string
@@ -168,8 +166,17 @@ def normalize_player_name(name):
         return name.lower().strip()
 
 def main():
+    from selenium.webdriver.chrome.options import Options
+
     service = Service("C:/WebDriver/chromedriver.exe")
-    driver = webdriver.Chrome(service=service)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,1080")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    driver = webdriver.Chrome(service=service, options=chrome_options)
 
     player_name = input("Enter the player's name: ")
     player_name = normalize_player_name(player_name)
