@@ -20,11 +20,9 @@ app.use(cors({
 
 // Initialize Firebase Admin SDK
 const serviceAccount = JSON.parse(process.env.serviceAccountKey);
-
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
-
 const db = admin.firestore();
 
 // File upload config
@@ -34,7 +32,6 @@ const upload = multer({ dest: "scraped_files/" });
 function parseCSVWithHeaderFix(csvText, placeholder = "@/H") {
   const lines = csvText.trim().split("\n");
   let headers = lines[0].split(",").map((h, i) => h.trim() || `${placeholder}_${i}`);
-
   const rows = lines.slice(1).map(line => {
     const values = line.split(",");
     const rowObj = {};
@@ -43,8 +40,7 @@ function parseCSVWithHeaderFix(csvText, placeholder = "@/H") {
     });
     return rowObj;
   });
-
-  return rows.slice(0, -1); // remove last row if empty
+  return rows.slice(0, -1);
 }
 
 // Upload CSV and store data in Firestore
@@ -65,7 +61,6 @@ async function uploadCSVFile(filePath, fileName) {
       console.log(`Skipped (exists): ${docName}`);
     }
 
-    // Update playerData collection
     if (row["Player"]) {
       const [firstName, ...rest] = row["Player"].split(" ");
       const lastName = rest.join(" ");
@@ -78,7 +73,7 @@ async function uploadCSVFile(filePath, fileName) {
   }
 }
 
-// Upload route for CSV files
+// Route: upload CSV file
 app.post("/upload", upload.single("file"), async (req, res) => {
   const file = req.file;
   if (!file) return res.status(400).send("No file uploaded");
@@ -93,15 +88,25 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   }
 });
 
-// 🔥 Predict route (placeholder logic)
+// 🔥 Route: predict stat
 app.post("/predict", (req, res) => {
-  console.log("Received /predict request with body:", req.body);
+  const { stat, player, opponent } = req.body;
 
-  // Simulate prediction result for now
-  const input = req.body.input || "No input";
-  const prediction = `Predicted result for "${input}"`;
+  if (!stat || !player || !opponent) {
+    return res.status(400).json({ error: "Missing stat, player, or opponent" });
+  }
 
-  res.status(200).json({ prediction });
+  console.log(`Prediction requested: Player=${player}, Stat=${stat}, Opponent=${opponent}`);
+
+  // Replace this with real logic later
+  const mockPrediction = (Math.random() * 5).toFixed(2);
+
+  res.status(200).json({
+    prediction: mockPrediction,
+    player,
+    stat,
+    opponent
+  });
 });
 
 // Start server
