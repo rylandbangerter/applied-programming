@@ -40,6 +40,7 @@ app.use(cors({
 // Initialize Firebase Admin SDK safely
 let serviceAccount;
 try {
+    console.log('serviceAccountKey raw from env:', process.env.serviceAccountKey ? '[exists]' : '[missing]');
   serviceAccount = JSON.parse(process.env.serviceAccountKey);
 } catch (err) {
   console.error("Failed to parse serviceAccountKey environment variable:", err);
