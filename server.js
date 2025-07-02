@@ -17,10 +17,11 @@ app.use(express.json());
 
 // CORS: Allow your specific Netlify frontend URL
 app.use(cors({
-  origin: "https://685c3bc628567b00087470c5--merry-gnome-9ee3d2.netlify.app",
+  origin: "https://6865611a383dca00083d9596--merry-gnome-9ee3d2.netlify.app",
   methods: ["GET", "POST"],
   credentials: true
 }));
+
 
 // Initialize Firebase Admin SDK safely
 let serviceAccount;
