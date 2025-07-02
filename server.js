@@ -16,11 +16,25 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // CORS: Allow your specific Netlify frontend URL
+const allowedOrigins = [
+  "https://6865611a383dca00083d9596--merry-gnome-9ee3d2.netlify.app",
+  "https://686561b3246d350008c802e1--merry-gnome-9ee3d2.netlify.app",
+  // add any other Netlify frontend URLs you use here
+];
+
 app.use(cors({
-  origin: "https://6865611a383dca00083d9596--merry-gnome-9ee3d2.netlify.app",
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // allow non-browser tools like Postman
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = `The CORS policy does not allow access from origin: ${origin}`;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   methods: ["GET", "POST"],
   credentials: true
 }));
+
 
 
 // Initialize Firebase Admin SDK safely
