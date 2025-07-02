@@ -1,4 +1,6 @@
 require("dotenv").config();
+console.log('serviceAccountKey env var:', process.env.serviceAccountKey ? '[exists]' : '[missing]');
+
 
 const express = require("express");
 const multer = require("multer");
