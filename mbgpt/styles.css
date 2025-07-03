@@ -18,7 +18,7 @@ header {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-h1, h3, p, h2 {
+h1, p, h2 {
     text-align: center;
     margin-top: 0;
 }
@@ -129,7 +129,7 @@ button:hover {
 }
 
 #parallax {
-    background-image: url("baseball-parallax.webp");
+    background-image: url("baseball-parallax-small.webp");
     font-size: 3em;
   
     min-height: 300px;
@@ -139,7 +139,7 @@ button:hover {
     align-items: center;
     text-align: center;
   
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -150,16 +150,21 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
     background-color: darkred;
     color: white;
     margin-top: 50px;
-    font-size: 1.2em;
+    margin-bottom: 0;
 }
 
 @media screen and (min-width: 700px) {
     #parallax h1 {
         font-size: 4em;
+    }
+
+    #parallax {
+        background-image: url("baseball-parallax.webp");
+        background-attachment: fixed;
     }
     
     .selection {
