@@ -119,6 +119,8 @@ async function getPrediction() {
     }
 }
 
+
+
 // Event Listener
 document.getElementById("predictButton").addEventListener("click", getPrediction);
 

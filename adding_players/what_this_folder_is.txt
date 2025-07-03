@@ -1,0 +1,1 @@
+This folder contains files to add the players to the database.  It can be deleted without any issues.
