@@ -1,0 +1,32 @@
+Rk,Gcar,Gtm,Date,Team,,Opp,Result,Inngs,PA,AB,R,H,2B,3B,HR,RBI,SB,CS,BB,SO,BA,OBP,SLG,OPS,TB,GIDP,HBP,SH,SF,IBB,BAbip,aLI,WPA,acLI,cWPA,RE24,BOP,Pos
+1,3,30,2021-05-04 (1),LAD,@,CHC,L 1-7 (7),7-GF(7),1,1,1,1,0,0,1,1,0,0,0,0,1.000,1.000,4.000,5.000,4,0,0,0,0,0,,0.00,0.001,0.00,0.00%,1.00,9,PH
+2,4,32,2021-05-05,LAD,@,CHC,L 5-6 (11),7-7,1,1,0,0,0,0,0,0,0,0,0,1,.500,.500,2.000,2.500,0,0,0,0,0,0,,0.73,-0.018,0.85,-0.01%,-0.16,9,PH
+3,5,33,2021-05-07,LAD,@,LAA,L 2-9,7-GF,1,1,0,0,0,0,0,0,0,0,0,0,.333,.333,1.333,1.667,0,0,0,0,0,0,.000,0.04,-0.001,0.04,0.00%,-0.25,5,C
+4,6,34,2021-05-08,LAD,@,LAA,W 14-11,7-GF,2,2,0,0,0,0,0,0,0,0,0,2,.200,.200,.800,1.000,0,0,0,0,0,0,,0.44,-0.023,0.46,-0.01%,-1.26,2,PH C
+5,7,35,2021-05-09,LAD,@,LAA,L 1-2,8-8,1,1,0,0,0,0,0,0,0,0,0,1,.167,.167,.667,.833,0,0,0,0,0,0,,2.06,-0.060,2.29,-0.04%,-0.24,8,PH
+6,8,40,2021-05-16,LAD,,MIA,L 2-3,7-8,1,1,0,0,0,0,0,0,0,0,0,1,.143,.143,.571,.714,0,0,0,0,0,0,,1.42,-0.036,1.78,-0.03%,-0.17,9,PH
+,,,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals,Player went from Los Angeles Dodgers to Washington Nationals
+7,9,130,2021-08-30,WSN,,PHI,L 4-7,CG,4,4,0,1,0,0,0,0,0,0,0,0,.182,.182,.455,.636,1,0,0,0,0,0,.250,1.26,-0.038,0.00,0.00%,-0.63,6,C
+8,10,131,2021-08-31,WSN,,PHI,L 6-12,CG,5,5,0,1,0,0,0,1,0,0,0,0,.188,.188,.375,.563,1,0,0,0,0,0,.200,0.58,-0.025,0.00,0.00%,-0.24,6,C
+9,11,132,2021-09-02,WSN,,PHI,L 6-7,CG,5,5,0,0,0,0,0,0,0,0,0,2,.143,.143,.286,.429,0,0,0,0,0,0,.000,1.45,-0.195,0.00,0.00%,-1.45,6,C
+10,12,133,2021-09-03,WSN,,NYM,L 2-6 (10),5-6,1,1,0,0,0,0,0,0,0,0,0,0,.136,.136,.273,.409,0,0,0,0,0,0,.000,2.86,-0.084,0.00,0.00%,-0.59,9,PH
+11,13,134,2021-09-04 (1),WSN,,NYM,L 9-11 (9),CG,5,5,1,1,0,0,0,0,0,0,0,1,.148,.148,.259,.407,1,0,0,0,0,0,.250,1.97,-0.185,0.00,0.00%,-0.64,6,C
+12,14,138,2021-09-07,WSN,@,ATL,L 5-8,6-6,1,1,0,0,0,0,0,0,0,0,0,0,.143,.143,.250,.393,0,0,0,0,0,0,.000,0.50,-0.015,0.00,0.00%,-0.24,9,PH
+13,15,139,2021-09-08,WSN,@,ATL,W 4-2,CG,4,2,0,0,0,0,0,0,0,0,2,0,.133,.188,.233,.421,0,1,0,0,0,0,.000,1.14,-0.076,0.00,0.00%,-1.10,7,C
+14,16,140,2021-09-09,WSN,@,ATL,L 6-7 (10),CG(10),5,5,0,0,0,0,0,0,0,0,0,0,.114,.162,.200,.362,0,0,0,0,0,0,.000,1.45,-0.178,0.00,0.00%,-1.10,7,C
+15,17,142,2021-09-11,WSN,@,PIT,L 7-10,GS-6,3,2,0,1,1,0,0,3,0,0,0,0,.135,.200,.243,.443,2,0,1,0,0,0,.500,1.94,0.334,0.00,0.00%,2.70,7,C
+16,18,144,2021-09-13,WSN,,MIA,L 0-3,CG,3,3,0,0,0,0,0,0,0,0,0,0,.125,.186,.225,.411,0,0,0,0,0,0,.000,1.49,-0.008,0.00,0.00%,-0.01,7,C
+17,19,145,2021-09-14,WSN,,MIA,W 8-2,CG,4,4,1,3,0,0,0,0,0,0,0,0,.182,.234,.273,.507,3,1,0,0,0,0,.750,0.43,-0.003,0.00,0.00%,0.47,7,C
+18,20,147,2021-09-17,WSN,,COL,L 8-9,GS-9,5,5,1,3,1,0,0,1,0,0,0,0,.224,.269,.327,.596,4,0,0,0,0,0,.600,1.96,0.062,0.00,0.00%,0.62,6,C
+19,21,149,2021-09-19,WSN,,COL,W 3-0,CG,3,2,0,0,0,0,0,0,0,0,0,0,.216,.273,.314,.586,0,0,1,0,0,0,.000,0.73,-0.029,0.00,0.00%,-0.33,7,C
+20,22,150,2021-09-20,WSN,@,MIA,L 7-8 (10),CG(10),5,5,1,3,0,0,0,4,0,0,0,1,.250,.300,.339,.639,3,0,0,0,0,0,.750,1.63,0.355,0.00,0.00%,2.77,6,C
+21,23,151,2021-09-21,WSN,@,MIA,W 7-1,CG,5,5,1,2,0,0,0,1,0,0,0,0,.262,.308,.344,.652,2,0,0,0,0,0,.400,1.09,0.204,0.00,0.00%,0.76,5,C
+22,24,153,2021-09-23,WSN,@,CIN,W 3-2,CG,4,4,0,1,1,0,0,0,0,0,0,0,.262,.304,.354,.658,2,0,0,0,0,0,.250,0.78,0.009,0.00,0.00%,0.11,6,C
+23,25,154,2021-09-24,WSN,@,CIN,L 7-8 (11),CG(11),5,5,1,3,0,0,1,2,0,0,0,0,.286,.324,.414,.739,6,0,0,0,0,0,.500,1.51,0.014,0.00,0.00%,1.27,6,C
+24,26,155,2021-09-25,WSN,@,CIN,L 6-7,CG,5,4,2,1,0,0,1,1,0,0,1,0,.284,.329,.446,.775,4,0,0,0,0,0,.000,1.41,0.078,0.00,0.00%,-0.08,6,C
+25,27,157,2021-09-27,WSN,@,COL,W 5-4,CG,4,3,0,0,0,0,0,1,0,0,1,0,.273,.325,.429,.754,0,0,0,0,0,0,.000,1.14,0.051,0.00,0.00%,0.36,6,C
+26,28,158,2021-09-28,WSN,@,COL,L 1-3,CG,4,4,0,1,0,0,0,0,0,0,0,0,.272,.322,.420,.742,1,1,0,0,0,0,.250,1.44,-0.109,0.00,0.00%,-0.67,5,C
+27,29,160,2021-10-01,WSN,,BOS,L 2-4,CG,5,5,0,2,0,0,0,0,0,0,0,0,.279,.326,.419,.745,2,0,0,0,0,0,.400,2.00,-0.032,0.00,0.00%,0.20,5,C
+28,30,161,2021-10-02,WSN,,BOS,L 3-5,CG,4,2,1,0,0,0,0,0,0,0,2,0,.273,.333,.409,.742,0,0,0,0,0,0,.000,0.97,0.023,0.00,0.00%,0.27,5,C
+29,31,162,2021-10-03,WSN,,BOS,L 5-7,9-GF,0,0,0,0,0,0,0,0,0,0,0,0,.273,.333,.409,.742,0,,0,0,,,,,,,,,7,C
+,,,,,,,7-22,,96,88,10,24,3,0,3,15,0,0,6,9,.273,.333,.409,.742,36,3,2,0,0,0,.276,1.31,0.016,0.19,-0.10%,1.37,,

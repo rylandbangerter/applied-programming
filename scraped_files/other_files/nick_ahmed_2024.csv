@@ -1,0 +1,75 @@
+Rk,Gcar,Gtm,Date,Team,,Opp,Result,Inngs,PA,AB,R,H,2B,3B,HR,RBI,SB,CS,BB,SO,BA,OBP,SLG,OPS,TB,GIDP,HBP,SH,SF,IBB,BAbip,aLI,WPA,acLI,cWPA,RE24,DFS(DK),DFS(FD),BOP,Pos
+1,889,1,2024-03-28,SFG,@,SDP,L 4-6,CG,3,3,0,2,1,0,0,2,0,0,0,0,.667,.667,1.000,1.667,3,0,0,0,0,0,.667,2.07,0.266,2.09,0.16%,1.84,12.00,16.00,9,SS
+2,890,2,2024-03-29,SFG,@,SDP,W 8-3,CG,4,3,0,0,0,0,0,0,0,0,0,1,.333,.429,.500,.929,0,0,1,0,0,0,.000,0.46,-0.011,0.45,-0.01%,-0.44,2.00,3.00,9,SS
+3,891,3,2024-03-30,SFG,@,SDP,W 9-6,CG,4,4,0,1,0,0,0,0,0,0,0,1,.300,.364,.400,.764,1,0,0,0,0,0,.333,0.59,0.027,0.61,0.02%,0.53,3.00,3.00,9,SS
+4,892,4,2024-03-31,SFG,@,SDP,L 4-13,8-GF,1,1,0,0,0,0,0,0,0,0,0,0,.273,.333,.364,.697,0,0,0,0,0,0,.000,0.01,0.000,0.01,0.00%,-0.24,0.00,0.00,2,SS
+5,893,5,2024-04-01,SFG,@,LAD,L 3-8,GS-9,3,3,0,1,0,0,0,0,0,0,0,1,.286,.333,.357,.690,1,0,0,0,0,0,.500,0.74,0.003,0.77,0.00%,0.06,3.00,3.00,9,SS
+6,894,6,2024-04-02,SFG,@,LAD,L 4-5,CG,4,4,0,1,0,0,0,1,0,0,0,0,.278,.316,.333,.649,1,0,0,0,0,0,.250,1.65,-0.015,1.65,-0.01%,0.33,5.00,6.50,9,SS
+7,895,7,2024-04-03,SFG,@,LAD,L 4-5,CG,3,3,0,0,0,0,0,0,0,0,0,1,.238,.273,.286,.558,0,0,0,0,0,0,.000,0.75,-0.058,0.72,-0.03%,-0.48,0.00,0.00,9,SS
+8,896,8,2024-04-05,SFG,,SDP,W 3-2,CG,3,3,0,0,0,0,0,0,0,0,0,0,.208,.240,.250,.490,0,0,0,0,0,0,.000,0.87,-0.067,0.78,-0.04%,-0.47,0.00,0.00,9,SS
+9,897,9,2024-04-06,SFG,,SDP,L 0-4,CG,3,2,0,1,0,0,0,0,0,0,1,0,.231,.286,.269,.555,1,0,0,0,0,0,.500,0.66,0.041,0.63,0.02%,0.53,5.00,6.00,9,SS
+10,898,10,2024-04-07,SFG,,SDP,W 3-2,CG,3,3,0,0,0,0,0,0,0,0,0,0,.207,.258,.241,.499,0,0,0,0,0,0,.000,0.88,-0.066,0.77,-0.04%,-0.42,0.00,0.00,9,SS
+11,899,11,2024-04-08,SFG,,WSN,L 1-8,CG,3,3,0,1,0,0,0,0,0,0,0,0,.219,.265,.250,.515,1,0,0,0,0,0,.333,0.34,-0.019,0.31,-0.01%,-0.20,3.00,3.00,9,SS
+12,900,12,2024-04-09,SFG,,WSN,L 3-5,CG,4,4,0,1,0,0,0,1,0,0,0,1,.222,.263,.250,.513,1,0,0,0,0,0,.333,2.59,0.126,2.27,0.07%,0.87,5.00,6.50,9,SS
+13,901,13,2024-04-10,SFG,,WSN,W 7-1,CG,3,3,3,3,0,1,0,2,0,0,0,0,.282,.317,.359,.676,5,0,0,0,0,0,1.000,0.70,0.163,0.54,0.08%,2.28,24.00,31.60,8,SS
+14,902,14,2024-04-12,SFG,@,TBR,L 1-2,CG,4,4,0,1,0,0,0,0,0,0,0,1,.279,.311,.349,.660,1,0,0,0,0,0,.333,2.64,-0.253,2.14,-0.12%,-0.97,3.00,3.00,9,SS
+15,903,15,2024-04-13,SFG,@,TBR,W 11-2,GS-8,3,3,0,0,0,0,0,0,0,0,0,2,.261,.292,.326,.618,0,0,0,0,0,0,.000,0.57,-0.042,0.42,-0.02%,-0.96,0.00,0.00,9,SS
+16,904,17,2024-04-15,SFG,@,MIA,W 4-3,CG,4,3,1,1,0,0,0,0,0,0,1,1,.265,.308,.327,.634,1,0,0,0,0,0,.500,0.87,0.019,0.66,0.01%,-0.14,7.00,9.20,9,SS
+17,905,18,2024-04-16,SFG,@,MIA,L 3-6,CG,4,3,0,2,1,0,0,0,0,0,1,1,.288,.339,.365,.705,3,0,0,0,0,0,1.000,1.06,0.166,0.85,0.08%,1.52,10.00,12.00,8,SS
+18,906,19,2024-04-17,SFG,@,MIA,W 3-1,CG,4,4,0,0,0,0,0,0,0,0,0,2,.268,.317,.339,.656,0,1,0,0,0,0,.000,1.00,-0.125,0.77,-0.06%,-1.69,0.00,0.00,8,SS
+19,907,20,2024-04-18,SFG,,ARI,W 5-0,CG,3,3,0,1,1,0,0,0,0,0,0,0,.271,.317,.356,.673,2,0,0,0,0,0,.333,0.83,-0.025,0.74,-0.01%,0.04,5.00,6.00,9,SS
+20,908,21,2024-04-19,SFG,,ARI,L 1-17,CG,3,3,0,2,0,0,0,0,0,0,0,0,.290,.333,.371,.704,2,0,0,0,0,0,.667,0.34,0.040,0.32,0.02%,0.22,6.00,6.00,9,SS
+21,909,22,2024-04-20,SFG,,ARI,W 7-3,CG,4,3,0,1,0,0,0,0,0,0,0,1,.292,.333,.369,.703,1,0,0,1,0,0,.500,0.61,-0.004,0.57,0.00%,-0.44,3.00,3.00,9,SS
+22,910,23,2024-04-21,SFG,,ARI,L 3-5,GS-7,2,2,0,0,0,0,0,0,0,0,0,0,.284,.324,.358,.682,0,0,0,0,0,0,.000,0.44,-0.023,0.43,-0.01%,-0.19,0.00,0.00,9,SS
+23,911,24,2024-04-22,SFG,,NYM,W 5-2,CG,4,4,0,2,0,0,0,2,0,0,0,0,.296,.333,.366,.700,2,1,0,0,0,0,.500,0.87,0.159,0.74,0.08%,0.95,10.00,13.00,9,SS
+24,912,25,2024-04-23,SFG,,NYM,W 5-1,CG,3,3,0,0,0,0,0,0,0,0,0,0,.284,.321,.351,.672,0,0,0,0,0,0,.000,0.35,-0.026,0.31,-0.01%,-0.73,0.00,0.00,9,SS
+25,913,26,2024-04-24,SFG,,NYM,L 2-8,CG,4,4,0,0,0,0,0,0,0,0,0,2,.269,.305,.333,.638,0,0,0,0,0,0,.000,0.95,-0.094,0.86,-0.05%,-1.42,0.00,0.00,9,SS
+26,914,27,2024-04-26,SFG,,PIT,W 3-0,CG,3,3,0,1,0,0,0,0,0,1,0,1,.272,.306,.333,.639,1,0,0,0,0,0,.500,1.51,-0.090,1.34,-0.05%,-0.60,3.00,3.00,9,SS
+27,915,28,2024-04-27,SFG,,PIT,L 3-4 (10),GS-10,3,3,1,0,0,0,0,0,0,0,0,0,.262,.295,.321,.617,0,1,0,0,0,0,.000,1.63,-0.006,1.47,0.00%,-0.11,2.00,3.20,9,SS
+28,916,30,2024-04-30,SFG,@,BOS,L 0-4,CG,3,3,0,0,0,0,0,0,0,0,0,1,.253,.286,.310,.596,0,0,0,0,0,0,.000,0.66,-0.049,0.57,-0.03%,-0.81,0.00,0.00,9,SS
+29,917,31,2024-05-01,SFG,@,BOS,L 2-6,CG,3,3,0,0,0,0,0,0,0,0,0,1,.244,.277,.300,.577,0,0,0,0,0,0,.000,0.78,-0.060,0.64,-0.03%,-0.60,0.00,0.00,9,SS
+30,918,32,2024-05-02,SFG,@,BOS,W 3-1,CG,3,2,0,0,0,0,0,1,0,0,0,0,.239,.268,.293,.562,0,0,0,0,1,0,.000,1.17,-0.008,0.92,0.00%,-0.32,2.00,3.50,9,SS
+31,919,33,2024-05-03,SFG,@,PHI,L 3-4,CG,4,3,1,1,0,0,0,0,0,0,1,1,.242,.277,.295,.572,1,0,0,0,0,0,.500,1.93,-0.053,1.63,-0.03%,0.10,7.00,9.20,9,SS
+32,920,34,2024-05-04,SFG,@,PHI,L 3-14,CG,4,4,1,1,1,0,0,0,0,0,0,1,.242,.276,.303,.579,2,2,0,0,0,0,.333,0.20,-0.025,0.17,-0.01%,-2.84,7.00,9.20,9,SS
+33,921,35,2024-05-05,SFG,@,PHI,L 4-5,CG,4,3,0,0,0,0,0,0,0,0,1,2,.235,.275,.294,.569,0,0,0,0,0,0,.000,1.45,-0.039,1.08,-0.02%,-0.30,2.00,3.00,9,SS
+34,922,37,2024-05-07,SFG,@,COL,W 5-0,CG,4,4,1,2,0,0,0,1,0,0,0,1,.245,.283,.302,.585,2,0,0,0,0,0,.667,1.03,0.040,0.66,0.02%,0.36,10.00,12.70,9,SS
+35,923,38,2024-05-08,SFG,@,COL,W 8-6,CG,4,3,1,0,0,0,0,1,0,0,0,0,.239,.276,.294,.569,0,0,0,1,0,0,.000,0.56,0.016,0.39,0.01%,-0.70,4.00,6.70,9,SS
+36,924,39,2024-05-09,SFG,@,COL,L 1-9,GS-4,1,1,0,0,0,0,0,0,0,0,0,0,.236,.274,.291,.564,0,0,0,0,0,0,.000,0.99,-0.026,0.69,-0.01%,-0.26,0.00,0.00,8,SS
+37,925,70,2024-06-14,SFG,,LAA,L 6-8,CG,4,4,1,2,0,0,0,0,0,0,0,1,.246,.281,.298,.579,2,0,0,0,0,0,.667,0.40,0.015,0.34,0.01%,-0.31,8.00,9.20,9,SS
+38,926,71,2024-06-15,SFG,,LAA,L 3-4,GS-8,3,3,0,1,0,0,0,0,1,0,0,0,.248,.282,.299,.581,1,0,0,0,0,0,.333,1.00,0.089,0.76,0.04%,0.35,8.00,9.00,8,SS
+39,927,74,2024-06-18,SFG,@,CHC,L 2-5,CG,3,3,0,1,0,0,0,0,0,0,0,0,.250,.283,.300,.583,1,0,0,0,0,0,.333,1.31,-0.026,1.14,-0.01%,-0.33,3.00,3.00,7,SS
+40,928,75,2024-06-19,SFG,@,CHC,L 5-6,9-GF,0,0,0,0,0,0,0,0,0,0,0,0,.250,.283,.300,.583,0,,0,0,,,,,,,,,0.00,0.00,9,PR
+41,929,76,2024-06-20,SFG,@,STL,L 5-6,GS-9,3,2,0,0,0,0,0,1,0,0,0,1,.246,.277,.295,.572,0,1,0,0,1,0,.000,2.63,-0.175,2.03,-0.08%,-1.42,2.00,3.50,9,SS
+42,930,79,2024-06-24,SFG,,CHC,W 5-4,CG,4,2,1,1,0,0,1,1,0,0,2,1,.250,.291,.323,.614,4,0,0,0,0,0,,2.62,0.359,1.40,0.12%,1.88,18.00,24.70,9,SS
+43,931,82,2024-06-27,SFG,,CHC,L 3-5 (10),GS-9,3,2,0,0,0,0,0,0,0,0,1,1,.246,.292,.317,.609,0,0,0,0,0,0,.000,1.02,-0.014,0.64,-0.01%,0.00,2.00,3.00,8,SS
+44,932,83,2024-06-28,SFG,,LAD,W 5-3,CG,3,3,0,0,0,0,0,0,0,0,0,0,.240,.286,.310,.596,0,0,0,0,0,0,.000,1.02,-0.073,0.67,-0.03%,-0.58,0.00,0.00,9,SS
+45,933,84,2024-06-29,SFG,,LAD,L 7-14 (11),CG(11),5,4,1,1,0,0,0,0,0,0,1,1,.241,.290,.308,.598,1,0,0,0,0,0,.333,2.08,-0.163,1.39,-0.07%,-0.32,7.00,9.20,9,SS
+46,934,85,2024-06-30,SFG,,LAD,W 10-4,CG,4,4,0,2,1,0,0,0,0,0,0,1,.248,.295,.321,.616,3,0,0,0,0,0,.667,0.42,0.036,0.29,0.02%,0.28,8.00,9.00,8,SS
+47,935,86,2024-07-02,SFG,@,ATL,W 5-3,CG,4,3,0,0,0,0,0,1,0,0,0,1,.243,.288,.314,.602,0,0,0,0,1,0,.000,1.47,-0.069,0.98,-0.03%,-0.94,2.00,3.50,9,SS
+48,936,87,2024-07-03,SFG,@,ATL,L 1-3,CG,3,3,0,0,0,0,0,0,0,0,0,2,.238,.282,.308,.590,0,0,0,0,0,0,.000,1.01,-0.080,0.78,-0.04%,-0.66,0.00,0.00,7,SS
+49,937,88,2024-07-04,SFG,@,ATL,W 4-2,CG,4,4,0,0,0,0,0,0,0,0,0,0,.231,.275,.299,.574,0,0,0,0,0,0,.000,0.67,-0.068,0.47,-0.03%,-1.01,0.00,0.00,9,SS
+50,938,89,2024-07-05,SFG,@,CLE,W 4-2,CG,4,2,0,1,0,0,0,1,0,0,1,1,.235,.282,.302,.584,1,0,0,1,0,0,1.000,0.56,0.027,0.38,0.01%,0.42,7.00,9.50,9,SS
+51,939,90,2024-07-06,SFG,@,CLE,L 4-5,GS-8,3,3,0,0,0,0,0,0,0,0,0,2,.230,.277,.296,.573,0,0,0,0,0,0,.000,1.77,-0.133,1.35,-0.06%,-1.25,0.00,0.00,8,SS
+52,940,91,2024-07-07,SFG,@,CLE,L 4-5,CG,3,3,1,1,1,0,0,0,0,0,0,0,.232,.278,.303,.581,2,0,0,0,0,0,.333,0.82,-0.010,0.56,0.00%,0.08,7.00,9.20,9,SS
+,,,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers,Player went from San Francisco Giants to Los Angeles Dodgers
+53,941,103,2024-07-24,LAD,,SFG,L 3-8,CG,3,3,1,1,0,0,0,0,0,0,0,2,.234,.279,.304,.583,1,0,0,0,0,0,1.000,0.54,-0.034,0.59,-0.02%,0.07,5.00,6.20,9,SS
+54,942,104,2024-07-25,LAD,,SFG,W 6-4,CG,4,4,1,2,0,0,1,1,0,0,0,1,.241,.284,.327,.611,5,0,0,0,0,0,.500,1.16,0.261,1.38,0.19%,0.69,17.00,21.70,9,SS
+55,943,105,2024-07-26,LAD,@,HOU,L 0-5,CG,3,3,0,0,0,0,0,0,0,0,0,2,.236,.279,.321,.601,0,0,0,0,0,0,.000,1.02,-0.083,1.08,-0.05%,-1.13,0.00,0.00,8,SS
+56,944,106,2024-07-27,LAD,@,HOU,L 6-7,CG,4,4,1,1,0,0,0,0,0,0,0,2,.237,.279,.320,.598,1,0,0,0,0,0,.500,0.69,-0.031,0.81,-0.02%,-0.70,5.00,6.20,9,SS
+57,945,107,2024-07-28,LAD,@,HOU,W 6-2,CG,4,3,0,0,0,0,0,0,0,0,1,0,.233,.278,.314,.592,0,0,0,0,0,0,.000,0.87,-0.060,1.09,-0.05%,-1.15,2.00,3.00,9,SS
+58,946,108,2024-07-30,LAD,@,SDP,L 5-6 (10),CG(10),4,4,0,1,0,0,0,0,1,0,0,1,.233,.277,.313,.590,1,0,0,0,0,0,.333,0.47,0.012,0.61,0.01%,-0.04,8.00,9.00,9,SS
+59,947,109,2024-07-31,LAD,@,SDP,L 1-8,CG,3,3,1,1,0,0,0,0,0,0,0,0,.235,.278,.313,.591,1,0,0,0,0,0,.333,0.30,0.007,0.46,0.01%,-0.30,5.00,6.20,9,SS
+60,948,110,2024-08-02,LAD,@,OAK,L 5-6,GS-7,2,2,0,0,0,0,0,0,0,0,0,1,.232,.276,.309,.585,0,0,0,0,0,0,.000,0.64,-0.032,0.91,-0.03%,-0.44,0.00,0.00,9,SS
+61,949,111,2024-08-03,LAD,@,OAK,W 10-0,CG,5,5,0,1,0,0,0,1,0,0,0,1,.231,.274,.306,.580,1,0,0,0,0,0,.250,0.56,-0.066,0.81,-0.06%,-0.02,5.00,6.50,9,SS
+62,950,112,2024-08-04,LAD,@,OAK,W 3-2,9-GF,0,0,0,0,0,0,0,0,0,0,0,0,.231,.274,.306,.580,0,,0,0,,,,,,,,,0.00,0.00,7,SS
+63,951,113,2024-08-05,LAD,,PHI,W 5-3,CG,3,3,1,1,0,0,0,0,0,0,0,1,.233,.275,.307,.581,1,0,0,0,0,0,.500,0.82,0.059,1.21,0.05%,0.40,5.00,6.20,9,SS
+64,952,114,2024-08-06,LAD,,PHI,L 2-6,GS-9,3,3,0,1,0,0,0,0,0,0,0,0,.234,.275,.307,.583,1,0,0,0,0,0,.333,1.61,-0.061,2.24,-0.05%,-0.54,3.00,3.00,8,SS
+65,953,117,2024-08-10,LAD,,PIT,W 4-1,CG,3,3,1,2,0,0,0,0,0,0,0,1,.241,.281,.313,.594,2,0,0,0,0,0,1.000,0.44,0.031,0.61,0.03%,1.01,8.00,9.20,9,SS
+66,954,118,2024-08-11,LAD,,PIT,W 6-5 (10),8-9,1,1,0,0,0,0,0,0,0,0,0,0,.240,.280,.311,.591,0,0,0,0,0,0,.000,2.10,-0.088,2.92,-0.07%,-0.43,0.00,0.00,9,PH
+67,955,121,2024-08-14,LAD,@,MIL,L 4-5,GS-8,3,3,0,0,0,0,0,0,0,0,0,1,.236,.276,.307,.582,0,0,0,0,0,0,.000,0.67,-0.051,0.90,-0.04%,-0.52,0.00,0.00,9,SS
+68,956,124,2024-08-17,LAD,@,STL,L 2-5,8-9,0,0,0,0,0,0,0,0,0,0,0,0,.236,.276,.307,.582,0,,0,0,,,,,,,,,0.00,0.00,3,SS
+69,957,125,2024-08-18,LAD,@,STL,W 2-1,CG,4,4,0,0,0,0,0,0,0,0,0,1,.232,.271,.300,.571,0,0,0,0,0,0,.000,0.98,-0.100,1.35,-0.08%,-1.02,0.00,0.00,9,SS
+,,,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres,Player went from Los Angeles Dodgers to San Diego Padres
+70,958,161,2024-09-28,SDP,@,ARI,W 5-0,CG,4,4,0,0,0,0,0,0,0,0,0,1,.227,.266,.295,.560,0,0,0,0,0,0,.000,1.79,-0.173,0.13,-0.01%,-1.21,0.00,0.00,5,2B
+71,959,162,2024-09-29,SDP,@,ARI,L 2-11,CG,3,3,1,1,0,0,0,0,0,0,0,1,.229,.267,.295,.562,1,0,0,0,0,0,.500,0.74,-0.048,0.04,0.00%,-0.27,5.00,6.20,6,SS
+,,,,,,,31-40,,228,210,20,48,6,1,2,17,2,1,11,51,.229,.267,.295,.562,62,6,1,3,3,0,.288,1.04,-0.860,0.89,-0.41%,-15.06,283.00,357.50,,
