@@ -124,9 +124,6 @@ def scrape_player_page_and_years(player_url, driver, player_name):
     print("Year links found:", [href for _, href in year_links])
     for a, href in year_links:
         full_url = "https://www.baseball-reference.com" + href
-        # Only load the year page if not already there
-        # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-
         load_year_page(driver, full_url)
         try:
             close_popup_if_present(driver)
@@ -159,21 +156,32 @@ def initialize_driver():
     return driver
 
 def main():
+    # Ensure the scraped_files directory exists
     os.makedirs("scraped_files", exist_ok=True)
-    with open("C:/Users/taylo/OneDrive/Desktop/applied-programming/web_scraper/column2_only.csv", newline="", encoding="utf-8") as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
+
+    # This loop allows the user to enter player names repeatedly
+    # and scrape their data until they choose to exit.
+    while True:
+        try:
             driver = initialize_driver()
-            if not row:
-                continue
-            player_name = normalize_player_name(row[0])
+            player_name = input("Enter the player's name (or 'exit' to quit): ")
+            if player_name.lower() == 'exit':
+                break
+            player_name = normalize_player_name(player_name)
             print(f"Searching for {player_name}...")
             player_url = search_player(player_name, driver)
             if not player_url:
                 print(f"Player not found: {player_name}")
                 continue
             scrape_player_page_and_years(player_url, driver, player_name)
-            driver.quit()
+            driver.quit() # Close the driver after scraping each player (to avoid memory leaks or browser issues)
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            break
+    player_name = input("Enter the player's name: ")
+    
+    
+    
 
 if __name__ == "__main__":
     main()
