@@ -1,0 +1,39 @@
+Rk,Gcar,Gtm,Date,Team,,Opp,Result,Inngs,PA,AB,R,H,2B,3B,HR,RBI,SB,CS,BB,SO,BA,OBP,SLG,OPS,TB,GIDP,HBP,SH,SF,IBB,BAbip,aLI,WPA,acLI,cWPA,RE24,BOP,Pos
+1,539,1,2021-04-01,MIL,,MIN,W 6-5 (10),6-GF(10),2,2,0,0,0,0,0,1,0,0,0,0,.000,.000,.000,.000,0,0,0,0,0,0,.000,1.27,0.055,1.15,0.03%,0.54,8,SS
+2,540,2,2021-04-03,MIL,,MIN,L 0-2,GS-8,2,2,0,0,0,0,0,0,0,0,0,1,.000,.000,.000,.000,0,0,0,0,0,0,.000,1.02,-0.052,1.01,-0.03%,-0.40,8,SS 3B
+3,541,3,2021-04-04,MIL,,MIN,L 2-8,CG,4,4,0,0,0,0,0,0,0,0,0,2,.000,.000,.000,.000,0,0,0,0,0,0,.000,0.94,-0.098,0.86,-0.05%,-1.06,8,3B
+4,542,4,2021-04-05,MIL,@,CHC,L 3-5,CG,3,3,0,1,0,0,0,0,0,0,0,0,.091,.091,.091,.182,1,0,0,0,0,0,.333,0.90,-0.020,0.94,-0.01%,-0.40,8,3B
+,,,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves,Player went from Milwaukee Brewers to Atlanta Braves
+5,543,83,2021-07-04,ATL,,MIA,W 8-7 (10),CG(10),5,4,1,2,0,0,0,1,0,0,1,0,.200,.250,.200,.450,2,0,0,0,0,1,.500,2.06,0.099,1.85,0.05%,1.48,7,LF
+6,544,84,2021-07-05,ATL,@,PIT,L 1-11,CG,4,4,0,0,0,0,0,0,0,0,0,0,.158,.200,.158,.358,0,1,0,0,0,0,.000,1.00,-0.101,0.89,-0.05%,-1.96,7,LF
+7,545,85,2021-07-06,ATL,@,PIT,L 1-2,CG,3,3,1,2,0,0,1,1,1,0,0,1,.227,.261,.364,.625,5,0,0,0,0,0,1.000,1.09,0.152,0.87,0.07%,1.25,7,LF
+8,546,86,2021-07-07,ATL,@,PIT,W 14-3,GS-6,4,4,0,1,0,0,0,2,0,0,0,1,.231,.259,.346,.605,1,0,0,0,0,0,.333,1.62,0.003,1.19,0.00%,0.67,5,LF
+9,547,87,2021-07-09,ATL,@,MIA,W 5-0,8-8,1,1,0,1,1,0,0,1,0,0,0,0,.259,.286,.407,.693,2,0,0,0,0,0,1.000,0.39,0.037,0.35,0.02%,1.00,9,PH
+10,548,88,2021-07-10,ATL,@,MIA,W 5-4,GS-8,4,4,1,1,0,0,0,0,0,0,0,2,.258,.281,.387,.668,1,0,0,0,0,0,.500,0.82,0.042,0.76,0.02%,0.14,5,LF
+11,549,89,2021-07-11,ATL,@,MIA,L 4-7,CG,4,4,0,1,0,0,0,1,0,0,0,1,.257,.278,.371,.649,1,0,0,0,0,0,.333,0.57,0.039,0.62,0.03%,0.35,5,LF
+12,550,90,2021-07-16,ATL,,TBR,L 6-7 (10),CG(10),5,4,0,1,0,0,0,1,0,0,1,1,.256,.293,.359,.652,1,0,0,0,0,0,.333,1.75,-0.074,1.69,-0.04%,0.38,5,LF
+13,551,91,2021-07-17,ATL,,TBR,W 9-0,CG,4,3,0,0,0,0,0,0,0,0,1,0,.238,.289,.333,.622,0,0,0,0,0,0,.000,0.23,-0.023,0.22,-0.01%,-0.32,6,LF
+14,552,92,2021-07-18,ATL,,TBR,L 5-7,CG,5,5,1,0,0,0,0,0,0,0,0,3,.213,.260,.298,.558,0,1,0,0,0,0,.000,1.63,-0.265,1.61,-0.16%,-2.60,6,LF
+15,553,94,2021-07-21 (1),ATL,,SDP,L 2-3 (7),CG(7),3,3,0,0,0,0,0,0,0,0,0,1,.200,.245,.280,.525,0,0,0,0,0,0,.000,1.88,-0.071,1.85,-0.04%,-0.10,7,LF
+16,554,95,2021-07-21 (2),ATL,,SDP,L 5-6 (7),GS-6,2,1,0,1,0,0,0,1,0,0,0,0,.216,.255,.294,.549,1,0,0,0,1,0,.500,1.36,0.024,1.19,0.01%,0.21,8,LF
+17,555,96,2021-07-22,ATL,@,PHI,W 7-2,CG,4,4,1,1,0,0,1,1,0,0,0,0,.218,.254,.345,.600,4,0,0,0,0,0,.000,0.29,0.006,0.31,0.00%,0.15,7,LF
+18,556,97,2021-07-23,ATL,@,PHI,L 1-5,9-GF,1,0,0,0,0,0,0,0,0,0,1,0,.218,.267,.345,.612,0,0,0,0,0,0,,0.29,0.009,0.34,0.01%,0.26,9,PH
+19,557,98,2021-07-24,ATL,@,PHI,W 15-3,9-9,1,1,0,0,0,0,0,0,0,0,0,1,.214,.262,.339,.602,0,0,0,0,0,0,,0.00,0.000,0.00,0.00%,-0.16,3,PH
+20,558,100,2021-07-26 (1),ATL,@,NYM,W 2-0 (7),GS-6,3,3,0,0,0,0,0,1,0,0,0,2,.203,.250,.322,.572,0,0,0,0,0,0,.000,0.77,-0.034,1.00,-0.03%,-0.58,7,LF
+21,559,102,2021-07-27,ATL,@,NYM,W 12-5,9-9,1,1,0,0,0,0,0,0,0,0,0,1,.200,.246,.317,.563,0,0,0,0,0,0,,0.00,0.000,0.00,0.00%,-0.23,9,PH
+22,560,105,2021-07-30,ATL,,MIL,L 5-9,6-7,1,1,0,0,0,0,0,0,0,0,0,0,.197,.242,.311,.554,0,0,0,0,0,0,.000,0.73,-0.019,0.75,-0.01%,-0.17,9,PH
+23,561,133,2021-09-01,ATL,@,LAD,L 3-4,8-GF,1,1,0,0,0,0,0,0,0,0,0,0,.194,.239,.306,.545,0,0,0,0,0,0,.000,1.86,-0.048,3.39,-0.05%,-0.25,1,PH LF
+24,562,134,2021-09-02,ATL,@,COL,W 6-5,6-6,1,1,0,0,0,0,0,0,0,0,0,0,.190,.235,.302,.537,0,0,0,0,0,0,.000,1.03,-0.027,1.96,-0.03%,-0.27,9,PH
+25,563,137,2021-09-05,ATL,@,COL,W 9-2,8-8,1,1,0,0,0,0,0,0,0,0,0,0,.188,.232,.297,.529,0,0,0,0,0,0,.000,0.02,-0.001,0.04,0.00%,-0.26,9,PH
+26,564,138,2021-09-07,ATL,,WSN,W 8-5,8-9,1,1,0,0,0,0,0,0,0,0,0,0,.185,.229,.292,.521,0,0,0,0,0,0,.000,0.38,-0.004,0.83,-0.01%,-0.22,8,PH
+27,565,140,2021-09-09,ATL,,WSN,W 7-6 (10),9-10,1,1,0,0,0,0,0,0,0,0,0,0,.182,.225,.288,.513,0,0,0,0,0,0,.000,1.85,-0.047,3.96,-0.06%,-0.17,9,PH
+28,566,141,2021-09-10,ATL,,MIA,W 6-2,CG,4,3,1,1,0,0,0,1,0,0,1,1,.188,.240,.290,.530,1,0,0,0,0,0,.500,0.73,0.022,1.33,0.02%,1.03,7,SS
+29,567,145,2021-09-15,ATL,,COL,L 2-3 (10),9-10,1,1,0,0,0,0,0,0,0,0,0,0,.186,.237,.286,.523,0,0,0,0,0,0,.000,1.85,-0.047,2.39,-0.04%,-0.17,9,PH
+30,568,146,2021-09-17,ATL,@,SFG,L 5-6 (11),10-10,1,1,0,0,0,0,0,0,0,0,0,0,.183,.234,.282,.515,0,0,0,0,0,0,.000,3.42,-0.092,5.47,-0.09%,-0.36,2,PH
+31,569,147,2021-09-18,ATL,@,SFG,L 0-2,7-7,1,1,0,0,0,0,0,0,0,0,0,0,.181,.231,.278,.509,0,0,0,0,0,0,.000,1.15,-0.033,2.23,-0.04%,-0.23,9,PH
+32,570,154,2021-09-25,ATL,@,SDP,W 10-8 (10),10-10,1,0,1,0,0,0,0,0,0,0,1,0,.181,.241,.278,.518,0,0,0,0,0,0,,3.42,0.036,8.56,0.05%,0.22,9,PH
+33,571,155,2021-09-26,ATL,@,SDP,W 4-3,6-6,1,1,0,1,1,0,0,1,0,0,0,0,.192,.250,.301,.551,2,0,0,0,0,0,1.000,1.78,0.225,4.53,0.34%,1.42,9,PH
+34,572,159,2021-10-01,ATL,,NYM,L 3-4,CG,4,4,0,0,0,0,0,0,0,0,0,0,.182,.238,.286,.524,0,0,0,0,0,0,.000,2.21,-0.252,0.00,0.00%,-1.23,6,SS
+35,573,160,2021-10-02,ATL,,NYM,W 6-5,CG,4,3,2,2,1,0,0,1,0,0,1,1,.200,.261,.313,.574,3,0,0,0,0,0,1.000,0.40,0.037,0.00,0.00%,1.39,2,2B
+36,574,161,2021-10-03,ATL,,NYM,W 5-0,7-GF,1,1,0,0,0,0,0,0,0,0,0,0,.198,.258,.309,.567,0,0,0,0,0,0,.000,0.04,-0.001,0.00,0.00%,-0.11,2,SS
+,,,,,,,19-17,,89,81,9,16,3,0,2,14,1,0,7,19,.198,.258,.309,.567,25,2,0,0,1,1,.230,1.14,-0.523,1.50,-0.09%,-0.77,,

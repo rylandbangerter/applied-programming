@@ -1,0 +1,40 @@
+Rk,Gcar,Gtm,Date,Team,,Opp,Result,Inngs,PA,AB,R,H,2B,3B,HR,RBI,SB,CS,BB,SO,BA,OBP,SLG,OPS,TB,GIDP,HBP,SH,SF,IBB,BAbip,aLI,WPA,acLI,cWPA,RE24,BOP,Pos
+1,30,49,2022-05-30,PHI,,SFG,L 4-5 (10),CG(10),4,4,0,0,0,0,0,0,0,0,0,3,.000,.000,.000,.000,0,0,0,0,0,0,.000,1.13,-0.114,0.64,-0.04%,-0.67,7,CF RF
+2,31,50,2022-05-31,PHI,,SFG,L 4-7 (11),GS-6,2,2,0,0,0,0,0,0,0,0,0,2,.000,.000,.000,.000,0,0,0,0,0,0,,1.12,-0.056,0.57,-0.02%,-0.46,8,CF
+3,32,52,2022-06-03,PHI,,LAA,W 10-0,CG,4,4,0,1,0,0,0,0,0,0,0,0,.100,.100,.100,.200,1,0,0,0,0,0,.250,0.16,0.012,0.07,0.00%,-0.28,9,CF
+4,33,53,2022-06-04,PHI,,LAA,W 7-2,CG,4,3,0,1,0,0,0,1,0,0,1,2,.154,.214,.154,.368,1,0,0,0,0,0,1.000,0.25,0.042,0.12,0.01%,0.67,9,CF
+5,34,55,2022-06-07,PHI,@,MIL,W 3-2,GS-9,3,3,1,1,0,0,0,0,0,0,0,0,.188,.235,.188,.423,1,0,0,0,0,0,.333,1.12,-0.023,0.66,-0.01%,-0.07,9,CF
+6,35,56,2022-06-08,PHI,@,MIL,W 10-0,9-GF,0,0,0,0,0,0,0,0,0,0,0,0,.188,.235,.188,.423,0,,0,0,,,,,,,,,4,PR RF
+7,36,57,2022-06-09,PHI,@,MIL,W 8-3,CG,4,1,1,0,0,0,0,0,0,0,2,0,.176,.300,.176,.476,0,0,0,1,0,0,.000,1.21,-0.025,0.92,-0.01%,-0.16,9,CF
+8,37,60,2022-06-12,PHI,,ARI,L 1-13,CG,4,4,0,0,0,0,0,0,0,0,0,3,.143,.250,.143,.393,0,0,0,0,0,0,.000,0.68,-0.065,0.61,-0.04%,-0.97,9,CF
+9,38,61,2022-06-13,PHI,,MIA,W 3-2,CG,4,4,0,1,0,0,0,0,0,0,0,1,.160,.250,.160,.410,1,0,0,0,0,0,.333,1.35,-0.118,1.08,-0.06%,-0.56,8,CF
+10,39,75,2022-06-28,PHI,,ATL,L 3-5,GS-9,3,3,0,0,0,0,0,0,0,0,0,1,.143,.226,.143,.369,0,0,0,0,0,0,.000,2.09,-0.176,2.30,-0.12%,-1.19,9,CF
+11,40,76,2022-06-29,PHI,,ATL,L 1-4,CG,3,3,0,0,0,0,0,0,0,0,0,2,.129,.206,.129,.335,0,0,0,0,0,0,.000,1.73,-0.133,1.77,-0.08%,-1.22,9,CF
+12,41,77,2022-06-30,PHI,,ATL,W 14-4,8-GF,1,1,0,0,0,0,0,0,0,0,0,0,.125,.200,.125,.325,0,0,0,0,0,0,.000,0.00,0.000,0.00,0.00%,-0.23,2,PH RF
+13,42,78,2022-07-01,PHI,,STL,W 5-3,CG,4,4,1,1,1,0,0,1,0,0,0,0,.139,.205,.167,.372,2,0,0,0,0,0,.250,1.29,0.081,1.30,0.05%,0.25,9,CF
+14,43,79,2022-07-02,PHI,,STL,L 6-7,8-GF,0,0,0,0,0,0,0,0,0,0,0,0,.139,.205,.167,.372,0,,0,0,,,,,,,,,8,CF
+15,44,81,2022-07-05,PHI,,WSN,W 11-0,CG,4,4,0,0,0,0,0,0,0,0,0,1,.125,.186,.150,.336,0,0,0,0,0,0,.000,0.32,-0.035,0.29,-0.02%,-1.20,9,CF
+16,45,83,2022-07-07,PHI,,WSN,W 5-3,CG,3,3,0,1,0,0,0,0,0,0,0,2,.140,.196,.163,.358,1,0,0,0,0,0,1.000,0.77,0.025,0.70,0.01%,0.34,9,CF
+17,46,85,2022-07-09,PHI,@,STL,W 1-0,9-GF,0,0,1,0,0,0,0,0,0,0,0,0,.140,.196,.163,.358,0,,0,0,,,,,0.000,,0.00%,0.00,4,PR DH
+18,47,90,2022-07-15,PHI,@,MIA,W 2-1,CG,3,3,0,0,0,0,0,0,0,0,0,2,.130,.184,.152,.336,0,0,0,0,0,0,.000,0.79,-0.064,0.82,-0.04%,-0.56,9,CF
+,,,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels,Player went from Philadelphia Phillies to Los Angeles Angels
+19,48,104,2022-08-03,LAA,,OAK,L 1-3,GS-6,2,2,0,0,0,0,0,0,0,0,0,0,.125,.176,.146,.322,0,0,0,0,0,0,.000,1.55,-0.071,0.05,0.00%,-0.57,7,CF
+20,49,105,2022-08-04,LAA,,OAK,L 7-8,CG,4,4,1,1,0,0,1,1,0,0,0,2,.135,.182,.212,.393,4,0,0,0,0,0,.000,0.56,0.038,0.01,0.00%,0.64,8,CF
+21,50,106,2022-08-05,LAA,@,SEA,W 4-3 (10),6-GF(10),1,0,1,0,0,0,0,0,0,0,0,0,.135,.196,.212,.408,0,0,1,0,0,0,,0.59,0.022,0.01,0.00%,0.37,4,CF
+22,51,107,2022-08-06 (1),LAA,@,SEA,L 1-2,CG,4,4,0,1,0,0,0,1,0,0,0,1,.143,.200,.214,.414,1,0,0,0,0,0,.333,1.89,-0.063,0.04,0.00%,0.01,7,CF
+23,52,108,2022-08-06 (2),LAA,@,SEA,W 7-1,GS-9,4,4,2,2,0,0,1,1,0,0,0,2,.167,.219,.283,.502,5,0,0,0,0,0,1.000,0.78,0.035,0.01,0.00%,1.00,6,CF
+24,53,138,2022-09-09,LAA,@,HOU,L 3-4,CG,3,3,0,0,0,0,0,0,0,0,0,2,.159,.209,.270,.479,0,0,0,0,0,0,.000,1.05,-0.082,0.00,0.00%,-0.67,8,LF
+25,54,139,2022-09-10,LAA,@,HOU,W 6-1,CG,4,4,0,1,0,0,0,0,1,0,0,0,.164,.211,.269,.480,1,0,0,0,0,0,.250,0.74,0.068,0.00,0.00%,0.17,7,LF
+26,55,140,2022-09-11,LAA,@,HOU,L 4-12,CG,5,5,1,2,1,1,0,1,0,0,0,0,.181,.224,.319,.543,5,0,0,0,0,0,.400,0.75,0.019,0.00,0.00%,1.07,1,CF
+27,56,141,2022-09-12,LAA,@,CLE,L 4-5,6-GF,2,2,0,0,0,0,0,0,0,0,0,1,.176,.218,.311,.529,0,0,0,0,0,0,.000,2.04,-0.105,0.00,0.00%,-0.43,7,PH LF
+28,57,142,2022-09-13,LAA,@,CLE,L 1-3,CG,4,4,0,0,0,0,0,0,0,0,0,3,.167,.207,.295,.502,0,0,0,0,0,0,.000,1.24,-0.131,0.00,0.00%,-1.21,1,LF
+29,58,143,2022-09-14,LAA,@,CLE,L 3-5,CG,4,4,2,2,1,0,1,2,0,0,0,1,.183,.221,.354,.575,6,0,0,0,0,0,.500,1.02,0.191,0.00,0.00%,1.65,1,LF
+30,59,145,2022-09-17,LAA,,SEA,W 2-1,CG,3,3,0,0,0,0,0,0,0,0,0,2,.176,.213,.341,.555,0,0,0,0,0,0,.000,0.58,-0.046,0.00,0.00%,-0.61,7,LF
+31,60,147,2022-09-19,LAA,,SEA,L 1-9,CG,4,4,0,1,0,0,0,0,0,0,0,2,.180,.215,.337,.552,1,0,0,0,0,0,.500,0.43,-0.040,0.00,0.00%,-0.01,7,RF LF
+32,61,149,2022-09-21,LAA,@,TEX,L 2-7,GS-8,2,2,0,0,0,0,0,0,0,0,0,2,.176,.211,.330,.540,0,0,0,0,0,0,,0.48,-0.024,0.00,0.00%,-0.20,8,LF
+33,62,150,2022-09-22,LAA,@,TEX,L 3-5,8-GF,0,0,0,0,0,0,0,0,0,0,0,0,.176,.211,.330,.540,0,,0,0,,,,,,,,,5,PR LF
+34,63,151,2022-09-23,LAA,@,MIN,W 4-2,CG,4,4,0,0,0,0,0,0,0,0,0,1,.168,.202,.316,.518,0,0,0,0,0,0,.000,0.73,-0.068,0.00,0.00%,-0.75,7,LF
+35,64,152,2022-09-24,LAA,@,MIN,L 4-8,CG,4,3,1,1,0,0,0,0,0,0,1,1,.173,.214,.316,.530,1,0,0,0,0,0,.500,0.45,-0.011,0.00,0.00%,0.00,8,LF
+36,65,153,2022-09-25,LAA,@,MIN,W 10-3,CG,5,5,1,1,0,0,0,0,0,0,0,2,.175,.213,.311,.524,1,0,0,0,0,0,.333,0.61,-0.065,0.00,0.00%,-0.48,6,LF
+37,66,155,2022-09-28,LAA,,OAK,W 4-1,GS-6,3,3,0,0,0,0,0,0,0,0,0,3,.170,.207,.302,.509,0,0,0,0,0,0,,0.91,-0.077,0.00,0.00%,-1.28,7,LF
+,,,,,,,19-18,,112,106,13,18,3,1,3,8,1,0,4,44,.170,.207,.302,.509,32,0,1,1,0,0,.254,0.90,-1.059,0.36,-0.35%,-7.61,,

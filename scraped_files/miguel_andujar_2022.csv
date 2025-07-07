@@ -1,0 +1,39 @@
+Rk,Gcar,Gtm,Date,Team,,Opp,Result,Inngs,PA,AB,R,H,2B,3B,HR,RBI,SB,CS,BB,SO,BA,OBP,SLG,OPS,TB,GIDP,HBP,SH,SF,IBB,BAbip,aLI,WPA,acLI,cWPA,RE24,BOP,Pos
+1,233,20,2022-04-29,NYY,@,KCR,W 12-2 (8),8-GF(8),1,1,0,0,0,0,0,0,0,0,0,0,.000,.000,.000,.000,0,0,0,0,0,0,.000,0.00,0.000,0.00,0.00%,-0.35,2,PH DH
+2,234,22,2022-05-01,NYY,@,KCR,W 6-4,GS-8,4,4,1,2,0,0,0,0,0,0,0,0,.400,.400,.400,.800,2,0,0,0,0,0,.500,1.15,-0.035,1.35,-0.03%,-0.07,7,LF
+3,235,43,2022-05-24,NYY,,BAL,W 7-6 (11),CG(11),5,5,0,0,0,0,0,0,0,0,0,1,.200,.200,.200,.400,0,0,0,0,0,0,.000,1.75,-0.139,1.98,-0.09%,-0.81,6,LF
+4,236,44,2022-05-25,NYY,,BAL,W 2-0,CG,3,3,0,2,0,0,0,1,1,0,0,1,.308,.308,.308,.615,2,0,0,0,0,0,1.000,1.07,0.131,1.16,0.09%,1.16,5,LF
+5,237,45,2022-05-26,NYY,@,TBR,W 7-2,CG,4,4,0,1,0,0,0,1,0,0,0,1,.294,.294,.294,.588,1,0,0,0,0,0,.333,0.97,0.138,1.22,0.11%,1.10,4,LF
+6,238,46,2022-05-27,NYY,@,TBR,W 2-0,CG,4,4,0,1,1,0,0,0,0,0,0,0,.286,.286,.333,.619,2,0,0,0,0,0,.250,0.61,-0.042,0.73,-0.03%,-0.17,4,LF
+7,239,47,2022-05-28,NYY,@,TBR,L 1-3,CG,3,3,0,0,0,0,0,0,0,0,0,1,.250,.250,.292,.542,0,0,0,0,0,0,.000,1.29,-0.095,1.44,-0.06%,-0.65,5,LF
+8,240,48,2022-05-29,NYY,@,TBR,L 2-4,CG,4,4,0,2,0,0,0,0,0,0,0,0,.286,.286,.321,.607,2,0,0,0,0,0,.500,1.83,0.018,2.18,0.01%,0.16,5,LF
+9,241,49,2022-05-31,NYY,,LAA,W 9-1,CG,4,4,1,1,0,0,0,0,1,0,0,0,.281,.281,.313,.594,1,0,0,0,0,0,.250,0.25,0.006,0.28,0.00%,-0.45,5,LF
+10,242,50,2022-06-02 (1),NYY,,LAA,W 6-1,5-GF,2,1,0,0,0,0,0,1,0,0,0,1,.273,.265,.303,.568,0,0,0,0,1,0,.000,0.17,0.004,0.18,0.00%,-0.22,1,PH DH
+11,243,51,2022-06-02 (2),NYY,,LAA,W 2-1,CG,4,3,1,1,1,0,0,0,1,0,1,1,.278,.289,.333,.623,2,0,0,0,0,0,.500,2.03,0.156,2.03,0.09%,0.37,4,LF
+12,244,52,2022-06-03,NYY,,DET,W 13-0,CG,5,5,1,1,0,0,0,0,0,0,0,1,.268,.279,.317,.596,1,0,0,0,0,0,.250,0.39,-0.045,0.36,-0.03%,-0.58,5,LF
+13,245,78,2022-07-02 (1),NYY,@,CLE,W 13-4,CG,5,5,2,1,0,0,0,1,0,0,0,1,.261,.271,.304,.575,1,0,0,0,0,0,.250,0.66,0.109,0.21,0.02%,1.00,5,LF
+14,246,79,2022-07-02 (2),NYY,@,CLE,W 6-1,CG,4,3,1,0,0,0,0,0,0,0,1,0,.245,.269,.286,.555,0,0,0,0,0,0,.000,0.72,-0.074,0.21,-0.01%,-1.25,6,LF
+15,247,111,2022-08-09,NYY,@,SEA,L 0-1 (13),CG(13),5,5,0,1,0,0,0,0,0,0,0,3,.241,.263,.278,.541,1,0,0,0,0,0,.500,2.88,-0.280,0.76,-0.04%,-1.08,6,DH
+16,248,112,2022-08-10,NYY,@,SEA,L 3-4,GS-7,3,3,0,1,0,0,0,0,0,0,0,0,.246,.267,.281,.547,1,0,0,0,0,0,.333,1.35,-0.055,0.37,-0.01%,-0.26,7,LF
+17,249,115,2022-08-14,NYY,@,BOS,L 0-3,CG,3,3,0,1,0,0,0,0,1,0,0,1,.250,.270,.283,.553,1,0,0,0,0,0,.500,0.62,0.011,0.17,0.00%,0.01,6,DH
+18,250,116,2022-08-15,NYY,,TBR,L 0-4,CG,4,4,0,1,0,0,0,0,0,0,0,2,.250,.269,.281,.550,1,0,0,0,0,0,.500,1.04,-0.022,0.40,-0.01%,-0.36,5,DH
+19,251,117,2022-08-16,NYY,,TBR,L 1-3,CG,3,3,0,0,0,0,0,1,0,0,0,2,.239,.257,.269,.526,0,0,0,0,0,0,.000,1.36,-0.013,0.68,0.00%,0.00,7,DH
+20,252,136,2022-09-07 (1),NYY,,MIN,W 5-4 (12),GS-9,4,4,0,0,0,0,0,0,0,0,0,2,.225,.243,.254,.497,0,0,0,0,0,0,.000,1.11,-0.013,0.83,-0.01%,-0.23,5,LF
+21,253,138,2022-09-08,NYY,,MIN,L 3-4,CG,4,3,1,2,0,0,1,2,0,0,1,0,.243,.269,.311,.580,5,0,0,0,0,0,.500,2.00,0.147,1.17,0.05%,1.59,6,DH
+22,254,139,2022-09-09,NYY,,TBR,L 2-4,CG,4,4,0,2,0,0,0,0,0,0,0,1,.256,.280,.321,.601,2,0,0,0,0,0,.667,0.82,0.007,0.93,0.01%,-0.09,5,DH
+23,255,140,2022-09-10,NYY,,TBR,W 10-3,GS-7,4,4,1,2,0,0,0,1,0,0,0,0,.268,.291,.329,.620,2,0,0,0,0,0,.500,0.22,0.023,0.32,0.02%,0.66,6,LF
+24,256,141,2022-09-11,NYY,,TBR,W 10-4,GS-8,4,4,0,0,0,0,0,0,0,0,0,0,.256,.278,.314,.592,0,0,0,0,0,0,.000,0.07,-0.007,0.07,-0.01%,-0.64,6,LF
+25,257,142,2022-09-13,NYY,@,BOS,W 7-6 (10),GS-10,4,4,0,0,0,0,0,0,0,0,0,0,.244,.266,.300,.566,0,0,0,0,0,0,.000,1.76,-0.207,0.96,-0.07%,-1.44,6,LF
+26,258,144,2022-09-16,NYY,@,MIL,L 6-7,6-GF,2,2,0,0,0,0,0,0,0,0,0,2,.239,.260,.293,.554,0,0,0,0,0,0,,3.00,-0.228,0.88,-0.04%,-0.81,7,LF 1B
+27,259,145,2022-09-17,NYY,@,MIL,L 1-4,CG,4,4,0,0,0,0,0,0,0,0,0,1,.229,.250,.281,.531,0,0,0,0,0,0,.000,0.74,0.021,0.26,0.00%,0.07,5,LF
+,,,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates,Player went from New York Yankees to Pittsburgh Pirates
+28,260,154,2022-09-26,PIT,,CIN,W 8-3,CG,5,3,1,1,0,0,0,1,0,0,1,1,.232,.257,.283,.540,1,0,0,0,1,0,.333,1.04,0.029,0.00,0.00%,0.13,3,DH
+29,261,155,2022-09-27,PIT,,CIN,W 4-1,CG,4,4,0,1,1,0,0,3,0,1,0,2,.233,.257,.291,.548,2,0,0,0,0,0,.500,2.17,0.045,0.00,0.00%,0.45,5,DH
+30,262,156,2022-09-28,PIT,,CIN,W 4-3 (10),GS-9,4,4,0,2,1,0,0,1,0,0,0,1,.243,.265,.308,.574,3,0,0,0,0,0,.667,0.66,0.043,0.00,0.00%,0.04,3,LF
+31,263,157,2022-09-30,PIT,@,STL,L 1-2,CG,5,5,0,0,0,0,0,0,0,0,0,0,.232,.254,.295,.549,0,0,0,0,0,0,.000,1.73,-0.212,0.00,0.00%,-1.09,3,DH
+32,264,158,2022-10-01,PIT,@,STL,L 3-13,CG,4,4,1,1,0,0,0,0,0,0,0,0,.233,.254,.293,.547,1,0,0,0,0,0,.250,0.14,0.011,0.00,0.00%,-0.22,4,LF
+33,265,159,2022-10-02,PIT,@,STL,W 7-5,CG,5,4,0,0,0,0,0,2,0,0,0,1,.225,.244,.283,.527,0,0,0,0,1,0,.000,1.09,-0.009,0.00,0.00%,-0.81,3,DH
+34,266,160,2022-10-03,PIT,,STL,W 3-2,CG,4,3,0,0,0,0,0,0,0,0,1,0,.220,.244,.276,.521,0,0,0,0,0,0,.000,1.60,-0.100,0.00,0.00%,-0.37,4,LF
+35,267,161,2022-10-04,PIT,,STL,L 7-8 (10),CG(10),5,5,1,1,1,0,0,2,0,0,0,0,.219,.243,.281,.524,2,1,0,0,0,0,.200,1.17,0.077,0.00,0.00%,-0.21,4,DH
+36,268,162,2022-10-05,PIT,,STL,W 5-3,CG,4,4,1,3,0,1,0,0,0,0,0,0,.235,.257,.311,.568,5,0,0,0,0,0,.750,0.91,0.173,0.00,0.00%,1.42,4,LF
+,,,,,,,22-14,,140,132,13,31,5,1,1,17,4,1,5,27,.235,.257,.311,.568,41,1,0,0,3,0,.280,1.15,-0.427,0.59,-0.02%,-4.00,,

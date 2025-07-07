@@ -40,18 +40,12 @@ def search_player(player_name, driver):
     parts = player_name.strip().split()
     if len(parts) >= 2:
         first, last = parts[0], parts[1]
-        chars = (last[:5] + first[:2]).lower()
-        # Find all <a> tags and check their hrefs
+        chars = (last[:4] + first[:2]).lower()  # e.g., "sotoju" for "Juan Soto"
         links = driver.find_elements(By.TAG_NAME, "a")
-        pattern = re.compile(r"/players/[a-z]/([a-z]{5}[a-z]{2}\d{2})\.shtml", re.IGNORECASE)
         for link in links:
             href = link.get_attribute("href")
-            if href:
-                match = pattern.search(href)
-                if match:
-                    player_id = match.group(1)
-                    if all(c in player_id for c in chars):
-                        return href
+            if href and chars in href.lower():
+                return href
     
     # If no player found, return None
     print(f"No player found for {player_name}")
