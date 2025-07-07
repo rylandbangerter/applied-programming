@@ -71,14 +71,15 @@ async function uploadCSVFile(filePath, fileName) {
     const date = row["Date"] || row["date"] || row[Object.keys(row)[0]];
     const docName = `${fileName.replace(".csv", "")}_${date}`;
     const docRef = db.collection("gameStats").doc(docName);
-    const docSnap = await docRef.get();
+    //const docSnap = await docRef.get();
+    await docRef.set(row);
+    console.log(`Uploaded: ${docName}`);
 
-    if (!docSnap.exists) {
-      await docRef.set(row);
-      console.log(`Uploaded: ${docName}`);
-    } else {
-      console.log(`Skipped (exists): ${docName}`);
-    }
+    // if (!docSnap.exists) {
+     
+    // } else {
+    //   console.log(`Skipped (exists): ${docName}`);
+    // }
 
     if (row["Player"]) {
       const [firstName, ...rest] = row["Player"].split(" ");
