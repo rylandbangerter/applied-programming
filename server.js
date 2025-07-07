@@ -1,6 +1,3 @@
-require("dotenv").config();
-
-
 const express = require("express");
 const multer = require("multer");
 const fs = require("fs");
@@ -9,7 +6,7 @@ const admin = require("firebase-admin");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Parse JSON request bodies
 app.use(express.json());
@@ -38,15 +35,6 @@ app.use(cors({
 
 // Initialize Firebase Admin SDK safely
 let serviceAccount = require("C:/Users/rylan/Downloads/moneyball-a1cab-firebase-adminsdk-fbsvc-c37c72b1f2.json");
-// try {
-//     // console.log('serviceAccountKey raw from env:', process.env.serviceAccountKey ? '[exists]' : '[missing]');
-//     console.log(process.env.serviceAccountKey);
-//     serviceAccount = JSON.parse(process.env.serviceAccountKey);
-
-// } catch (err) {
-//   console.error("Failed to parse serviceAccountKey environment variable:", err);
-//   process.exit(1);
-// }
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -164,6 +152,26 @@ app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
   res.status(500).json({ error: "Internal server error" });
 });
+
+const path = require("path");
+
+async function processExistingCSVs() {
+  const files = await fsPromises.readdir("scraped_files/");
+  for (const file of files) {
+    if (file.endsWith(".csv")) {
+      const filePath = path.join("scraped_files", file);
+      try {
+        await uploadCSVFile(filePath, file);
+        await fsPromises.unlink(filePath);
+        console.log(`Processed and deleted: ${file}`);
+      } catch (err) {
+        console.error(`Failed processing ${file}:`, err);
+      }
+    }
+  }
+}
+
+processExistingCSVs();
 
 // Start server
 app.listen(PORT, () => {
