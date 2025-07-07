@@ -1,5 +1,4 @@
 require("dotenv").config();
-console.log('serviceAccountKey env var:', process.env.serviceAccountKey ? '[exists]' : '[missing]');
 
 
 const express = require("express");
@@ -22,7 +21,7 @@ const allowedOrigins = [
   // add any other Netlify frontend URLs you use here
 ];
 
-app.use(cors({
+app.use(cors({ 
   origin: function(origin, callback) {
     if (!origin) return callback(null, true); // allow non-browser tools like Postman
     if (allowedOrigins.indexOf(origin) === -1) {
@@ -38,14 +37,16 @@ app.use(cors({
 
 
 // Initialize Firebase Admin SDK safely
-let serviceAccount;
-try {
-    console.log('serviceAccountKey raw from env:', process.env.serviceAccountKey ? '[exists]' : '[missing]');
-  serviceAccount = JSON.parse(process.env.serviceAccountKey);
-} catch (err) {
-  console.error("Failed to parse serviceAccountKey environment variable:", err);
-  process.exit(1);
-}
+let serviceAccount = require("C:/Users/rylan/Downloads/moneyball-a1cab-firebase-adminsdk-fbsvc-c37c72b1f2.json");
+// try {
+//     // console.log('serviceAccountKey raw from env:', process.env.serviceAccountKey ? '[exists]' : '[missing]');
+//     console.log(process.env.serviceAccountKey);
+//     serviceAccount = JSON.parse(process.env.serviceAccountKey);
+
+// } catch (err) {
+//   console.error("Failed to parse serviceAccountKey environment variable:", err);
+//   process.exit(1);
+// }
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
