@@ -88,6 +88,7 @@ def search_player(player_name, driver):
         return driver.current_url
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
     parts = player_name.strip().split()
+    href_list = []
     if len(parts) >= 2:
         first, last = parts[0], parts[1]
         chars = (last[:last_name_length(last)] + first[:2]).lower()  # e.g., "sotoju" for "Juan Soto"
@@ -95,8 +96,11 @@ def search_player(player_name, driver):
         for link in links:
             href = link.get_attribute("href")
             if href and chars in href.lower():
-                return href
-    print(f"No player found for {player_name}")
+                href_list.append(href)
+    if href_list: #check if href_list is not empty
+        return href_list[-1] # return the last matching link
+    
+    print(f"No player found for {player_name}") # If no matching link is found it will print this message
     return None
 
 def load_player_page(driver, player_url):
