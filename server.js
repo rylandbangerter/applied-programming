@@ -15,6 +15,7 @@ app.use(express.json());
 const allowedOrigins = [
   "https://6865611a383dca00083d9596--merry-gnome-9ee3d2.netlify.app",
   "https://686561b3246d350008c802e1--merry-gnome-9ee3d2.netlify.app",
+  "https://686e9fc6cd75530008632a49--merry-gnome-9ee3d2.netlify.app/mbgpt/"
   // add any other Netlify frontend URLs you use here
 ];
 
