@@ -34,7 +34,9 @@ app.use(cors({
 
 
 // Initialize Firebase Admin SDK safely
-let serviceAccount = require("C:/Users/rylan/Downloads/moneyball-a1cab-firebase-adminsdk-fbsvc-c37c72b1f2.json");
+let serviceAccount = require("firebase-key.json");
+
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
