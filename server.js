@@ -1,7 +1,3 @@
-require("dotenv").config();
-console.log('serviceAccountKey env var:', process.env.serviceAccountKey ? '[exists]' : '[missing]');
-
-
 const express = require("express");
 const multer = require("multer");
 const fs = require("fs");
@@ -10,7 +6,7 @@ const admin = require("firebase-admin");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Parse JSON request bodies
 app.use(express.json());
@@ -22,7 +18,7 @@ const allowedOrigins = [
   // add any other Netlify frontend URLs you use here
 ];
 
-app.use(cors({
+app.use(cors({ 
   origin: function(origin, callback) {
     if (!origin) return callback(null, true); // allow non-browser tools like Postman
     if (allowedOrigins.indexOf(origin) === -1) {
@@ -38,14 +34,9 @@ app.use(cors({
 
 
 // Initialize Firebase Admin SDK safely
-let serviceAccount;
-try {
-    console.log('serviceAccountKey raw from env:', process.env.serviceAccountKey ? '[exists]' : '[missing]');
-  serviceAccount = JSON.parse(process.env.serviceAccountKey);
-} catch (err) {
-  console.error("Failed to parse serviceAccountKey environment variable:", err);
-  process.exit(1);
-}
+let serviceAccount = require("firebase-key.json");
+
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -82,14 +73,15 @@ async function uploadCSVFile(filePath, fileName) {
     const date = row["Date"] || row["date"] || row[Object.keys(row)[0]];
     const docName = `${fileName.replace(".csv", "")}_${date}`;
     const docRef = db.collection("gameStats").doc(docName);
-    const docSnap = await docRef.get();
+    //const docSnap = await docRef.get();
+    await docRef.set(row);
+    console.log(`Uploaded: ${docName}`);
 
-    if (!docSnap.exists) {
-      await docRef.set(row);
-      console.log(`Uploaded: ${docName}`);
-    } else {
-      console.log(`Skipped (exists): ${docName}`);
-    }
+    // if (!docSnap.exists) {
+     
+    // } else {
+    //   console.log(`Skipped (exists): ${docName}`);
+    // }
 
     if (row["Player"]) {
       const [firstName, ...rest] = row["Player"].split(" ");
@@ -163,6 +155,26 @@ app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
   res.status(500).json({ error: "Internal server error" });
 });
+
+const path = require("path");
+
+async function processExistingCSVs() {
+  const files = await fsPromises.readdir("scraped_files/");
+  for (const file of files) {
+    if (file.endsWith(".csv")) {
+      const filePath = path.join("scraped_files", file);
+      try {
+        await uploadCSVFile(filePath, file);
+        await fsPromises.unlink(filePath);
+        console.log(`Processed and deleted: ${file}`);
+      } catch (err) {
+        console.error(`Failed processing ${file}:`, err);
+      }
+    }
+  }
+}
+
+processExistingCSVs();
 
 // Start server
 app.listen(PORT, () => {
