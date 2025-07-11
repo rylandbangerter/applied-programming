@@ -15,6 +15,7 @@ app.use(express.json());
 const allowedOrigins = [
   "https://6865611a383dca00083d9596--merry-gnome-9ee3d2.netlify.app",
   "https://686561b3246d350008c802e1--merry-gnome-9ee3d2.netlify.app",
+  "https://686e9fc6cd75530008632a49--merry-gnome-9ee3d2.netlify.app/mbgpt/"
   // add any other Netlify frontend URLs you use here
 ];
 
@@ -34,7 +35,9 @@ app.use(cors({
 
 
 // Initialize Firebase Admin SDK safely
-let serviceAccount = require("C:/Users/rylan/Downloads/moneyball-a1cab-firebase-adminsdk-fbsvc-c37c72b1f2.json");
+let serviceAccount = require("firebase-key.json");
+
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
