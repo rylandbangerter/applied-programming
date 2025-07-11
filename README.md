@@ -48,4 +48,5 @@ The following items I plan to fix, improve, and/or add to this project in the fu
 * [X] Create an interface, GUI, or html page for software
 * [X] Connect dropdowns on html page to Firebase database
 * [X] Update website to look more user friendly
-* [ ] Connect html page to AI model to make predictions
+* [X] Connect html page to AI model to make predictions
+* [X] Improve site's performance
